@@ -1,0 +1,102 @@
+@startuml diagram
+
+SelectionSystem --> Student
+Student --> Training
+Training --> Student
+Couple --> Student
+Couple --> Training
+Behavior --> Student
+Location --> Training
+Ranking --> Training
+Preference --> Training
+Preference --> Location
+
+
+class Student {
+    -string name
+    -Behavior behavior
+    -unordered_map<Grade> grades
+    -unordered_map<Preference> preferences
+    +string get_name()
+    +Behavior get_behavior()
+    +int get_grade(Grade grade)
+    +unordered_map<Preference> get_preferences()
+    +void set_name(string name)
+    +void set_behavior(Behavior behavior)
+    +void push_grade(int grade)
+    +void remove_grade(Grade grade)
+    +void set_preference(Preference preference)
+    +void remove_preference()
+    +void remove_all_preferences()
+}
+
+class Preference {
+    -String training_theme
+    -String training_location
+    -int training_ranking
+    +String get_training_theme()
+    +String get_training_location()
+    +int get_training_ranking()
+    +void set_training_theme()
+    +void set_training_location()
+    +void set_training_ranking()
+}
+
+
+
+class SelectionSystem {
+    -String system_name
+    + unordered_map<Couple> galeShapley()
+    + String get_system_name()
+}
+
+class Training {
+    - Location Location
+    - Ranking ranking
+    + Location getLocation()
+    + Ranking getRanking()
+    + void setRanking()
+}
+
+
+class Behavior {
+    -int justified_absence
+    -int nonjustified_absence
+    -int justified_delays
+    -int non_justified_delays
+    -bool personal_issues
+    -int detention_hours
+    -int reports
+    -int disciplinary_boards
+    +int get_justified_absence()
+    +int get_nonjustified_absence()
+    +int get_justified_delays()
+    +int get_non_justified_delays()
+    +bool get_personal_issues()
+    +int get_detention_hours()
+    +int get_reports()
+    +bool get_personal_issues()
+    +bool get_disciplinary_boards()
+    +void set_justified_absence()
+    +void set_nonjustified_absence()
+    +void set_justified_delays()
+    +void set_non_justified_delays()
+    +void set_personal_issues()
+    +void set_detention_hours()
+    +void set_reports()
+    +void set_personal_issues()
+    +void set_disciplinary_boards()
+
+}
+
+class Couple {
+    -Student student 
+    -Training training
+    + Student getStudent()
+    + Training getTraining()
+    + void setStudent()
+    + void setTraining()
+}
+
+
+@enduml

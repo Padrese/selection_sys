@@ -1,4 +1,4 @@
-# Selection System project C++
+# Selective System project C++
 Simple model giving academical training positions to students based on standard criterions, using Gale-Shapley's algorithm. Inspired by the French selection system Parcoursup for higher academical training.
 
 This project is an implementation of a selection algorithm for students and trainings post-high school. This project is inspired by French selection system Parcoursup (successor of "Admission Post-Bac") who uses Gale-Shapley's algorithm to aim the same goals as this project. 

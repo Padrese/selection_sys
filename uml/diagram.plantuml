@@ -1,101 +1,83 @@
 @startuml diagram
 
-SelectionSystem --> Student
-Student --> Training
-Training --> Student
-Couple --> Student
-Couple --> Training
-Behavior --> Student
-Location --> Training
-Ranking --> Training
-Preference --> Training
-Preference --> Location
+SelectiveSystem ..> Student
+Student ..> Behavior
+Student ..> Training
+Couple ..> Student
+Couple ..> Training
 
 
 class Student {
-    -string name
-    -Behavior behavior
-    -unordered_map<Grade> grades
-    -unordered_map<Preference> preferences
-    +string get_name()
-    +Behavior get_behavior()
-    +int get_grade(Grade grade)
-    +unordered_map<Preference> get_preferences()
-    +void set_name(string name)
-    +void set_behavior(Behavior behavior)
-    +void push_grade(int grade)
-    +void remove_grade(Grade grade)
-    +void set_preference(Preference preference)
-    +void remove_preference()
-    +void remove_all_preferences()
-}
-
-class Preference {
-    -String training_theme
-    -String training_location
-    -int training_ranking
-    +String get_training_theme()
-    +String get_training_location()
-    +int get_training_ranking()
-    +void set_training_theme()
-    +void set_training_location()
-    +void set_training_ranking()
+    -name : string
+    -behavior : Behavior
+    -grades : unordered_map<string, int>
+    -preferences : map<string, Training> 
+    +get_name() : string
+    +get_behavior() : Behavior
+    +get_grade(int grade) : int
+    +get_preferences() : map<string, Training> 
+    +set_name(string name) : void
+    +set_behavior(Behavior behavior) : void
+    +push_grade(int grade) : void
+    +remove_grade(int grade) : void
+    +set_preference(Training training) : void
+    +remove_preference(Training training) : void
+    +remove_all_preferences() : void
 }
 
 
 
-class SelectionSystem {
-    -String system_name
-    + unordered_map<Couple> galeShapley()
-    + String get_system_name()
+class SelectiveSystem {
+    -system_name : string
+    + galeShapley() : map<Couple> 
+    + get_system_name() : string
 }
 
 class Training {
-    - Location Location
-    - Ranking ranking
-    + Location getLocation()
-    + Ranking getRanking()
-    + void setRanking()
+    - theme : string
+    - location : string
+    - ranking : int
+    + getLocation() : string
+    + getRanking() : int
+    + setRanking(int Ranking) : void
 }
 
 
 class Behavior {
-    -int justified_absence
-    -int nonjustified_absence
-    -int justified_delays
-    -int non_justified_delays
+    -justified_absence : int
+    -nonjustified_absence : int
+    -justified_delays : int
+    -non_justified_delays : int
     -bool personal_issues
-    -int detention_hours
-    -int reports
-    -int disciplinary_boards
-    +int get_justified_absence()
-    +int get_nonjustified_absence()
-    +int get_justified_delays()
-    +int get_non_justified_delays()
-    +bool get_personal_issues()
-    +int get_detention_hours()
-    +int get_reports()
-    +bool get_personal_issues()
-    +bool get_disciplinary_boards()
-    +void set_justified_absence()
-    +void set_nonjustified_absence()
-    +void set_justified_delays()
-    +void set_non_justified_delays()
-    +void set_personal_issues()
-    +void set_detention_hours()
-    +void set_reports()
-    +void set_personal_issues()
-    +void set_disciplinary_boards()
-
+    -detention_hours : int
+    -reports : int
+    -disciplinary_boards : int
+    +get_justified_absence() : int
+    +get_nonjustified_absence() : int
+    +get_justified_delays() : int
+    +get_non_justified_delays() : int
+    +get_personal_issues() : bool
+    +get_detention_hours() : int
+    +get_reports() : int
+    +get_personal_issues() : bool
+    +get_disciplinary_boards() : bool
+    +set_justified_absence(int nb_justified_absence) : void
+    +set_nonjustified_absence(int nb_nonjustified_absence) : void
+    +set_justified_delays(int nb_justified_delays) : void
+    +set_non_justified_delays(int nb_non_justified_delays) : void
+    +set_personal_issues(bool has_issues) : void
+    +set_detention_hours(int nb_detention_hours) : void
+    +set_reports(int nb_reports) : void
+    +set_disciplinary_boards(int nb_disciplinary boards) : void
 }
 
 class Couple {
-    -Student student 
-    -Training training
-    + Student getStudent()
-    + Training getTraining()
-    + void setStudent()
-    + void setTraining()
+    -student : Student
+    -training : Training
+    + getStudent() : Student
+    + getTraining() : Training
+    + setStudent(Student student) : void
+    + setTraining(Training training) : void
 }
 
 

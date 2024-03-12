@@ -1,83 +1,84 @@
 @startuml diagram
 
 SelectiveSystem ..> Student
-Student ..> Behavior
-Student ..> Training
+Behavior ..> Student
+Training ..> Student
 Couple ..> Student
 Couple ..> Training
 
 
 class Student {
-    -name : string
+    -id : int
     -behavior : Behavior
     -grades : unordered_map<string, int>
-    -preferences : map<string, Training> 
-    +get_name() : string
+    -preferences : map<int, Training> 
+    +get_id() : int
     +get_behavior() : Behavior
-    +get_grade(int grade) : int
+    +get_grade(string id_grade) : int
     +get_preferences() : map<string, Training> 
-    +set_name(string name) : void
     +set_behavior(Behavior behavior) : void
-    +push_grade(int grade) : void
+    +push_grade(string id_grade, int grade) : void
     +remove_grade(int grade) : void
     +set_preference(Training training) : void
     +remove_preference(Training training) : void
     +remove_all_preferences() : void
 }
 
-
-
 class SelectiveSystem {
     -system_name : string
-    + galeShapley() : map<Couple> 
+    -students: vector<Student>
+    -trainings: vector<Training>
+    + gale_shapley() : map<long, Couple> 
     + get_system_name() : string
 }
 
 class Training {
+    - training_name : string
     - theme : string
     - location : string
     - ranking : int
-    + getLocation() : string
-    + getRanking() : int
-    + setRanking(int Ranking) : void
+    + get_name() : string
+    + get_theme() : string
+    + get_location() : string
+    + get_ranking() : int
+    + set_ranking(int ranking) : void
 }
 
 
 class Behavior {
-    -justified_absence : int
-    -nonjustified_absence : int
+    -justified_absences : int
+    -unjustified_absences : int
     -justified_delays : int
-    -non_justified_delays : int
-    -bool personal_issues
+    -unjustified_delays : int
+    -personal_issues : bool
     -detention_hours : int
     -reports : int
     -disciplinary_boards : int
-    +get_justified_absence() : int
-    +get_nonjustified_absence() : int
+    +get_justified_absences() : int
+    +get_unjustified_absences() : int
     +get_justified_delays() : int
-    +get_non_justified_delays() : int
+    +get_unjustified_delays() : int
     +get_personal_issues() : bool
     +get_detention_hours() : int
     +get_reports() : int
-    +get_personal_issues() : bool
     +get_disciplinary_boards() : bool
-    +set_justified_absence(int nb_justified_absence) : void
-    +set_nonjustified_absence(int nb_nonjustified_absence) : void
+    +set_justified_absences(int nb_justified_absences) : void
+    +set_unjustified_absences(int nb_unjustified_absences) : void
     +set_justified_delays(int nb_justified_delays) : void
-    +set_non_justified_delays(int nb_non_justified_delays) : void
+    +set_unjustified_delays(int nb_unjustified_delays) : void
     +set_personal_issues(bool has_issues) : void
     +set_detention_hours(int nb_detention_hours) : void
     +set_reports(int nb_reports) : void
-    +set_disciplinary_boards(int nb_disciplinary boards) : void
+    +set_disciplinary_boards(int nb_disciplinary_boards) : void
 }
 
 class Couple {
     -student : Student
     -training : Training
-    + getStudent() : Student
-    + getTraining() : Training
-    + setStudent(Student student) : void
-    + setTraining(Training training) : void
+    + get_student() : Student
+    + get_training() : Training
+    + set_student(Student student) : void
+    + set_training(Training training) : void
 }
 
 

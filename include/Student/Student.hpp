@@ -1,27 +1,36 @@
 #ifndef DEF_STUDENT
 #define DEF_STUDENT
 
-#include <string>
 #include <unordered_map>
 #include <map>
+
+#include "../include/Training/Training.hpp"
+#include "../include/Behavior/Behavior.hpp"
+
 using namespace std;
 
 class Student{
     private:
-    string name;
+    long id;
     Behavior behavior;
     unordered_map<string, int> grades;
     map<string, Training> preferences;
 
     public:
-    string get_name();
-    Behavior get_behavior();
-    int get_grade(int grade);
-    map<string, Training> get_preferences();
-    void set_name(string name);
+
+    //Constructor
+    Student(long id);
+
+    //Destructor
+    ~Student();
+
+    long get_id() const;
+    Behavior get_behavior() const;
+    int get_grade(string id_grade) const;
+    map<string, Training> get_preferences() const;
     void set_behavior(Behavior behavior);
-    void push_grade(int grade);
-    void remove_grade(int grade);
+    void push_grade(string id_grade, int grade);
+    void remove_grade(string id_grade);
     void set_preference(Training training);
     void remove_preference(Training training);
     void remove_all_preferences();

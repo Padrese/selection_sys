@@ -3,7 +3,7 @@
 
 using namespace std;
 
-Student::Student(long id = -1){
+Student::Student(long id){
     this->id = id;
     this->has_training = false;
 }
@@ -45,15 +45,15 @@ int Student::get_grade(string id_grade) const{
     }
 }
 
-Training Student::get_preference(int order_preference) const {
+Preference Student::get_preference(int order_preference) const {
     if (preferences.count(order_preference) == 0){
         perror("Preference key doesn't exist in preferences map");
-        return;
+        return (Preference) nullptr;
     }
     return preferences.at(order_preference);
 }
 
-map<int, Training> Student::get_preferences() const{
+map<int, Preference> Student::get_preferences() const{
     return preferences;
 }
 
@@ -65,12 +65,8 @@ void Student::push_grade(string id_grade, int grade){
     grades.insert({id_grade, grade});
 }
 
-void Student::remove_grade(string id_grade){
-    grades.erase(id_grade);
-}
-
-void Student::set_preference(int order_preference, Training training){
-    preferences.insert({order_preference, training});
+void Student::add_preference(int order_preference, Preference preference){
+    preferences.insert({order_preference, preference});
 }
 
 void Student::remove_preference(int order_preference){

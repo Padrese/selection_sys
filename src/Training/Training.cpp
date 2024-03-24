@@ -39,20 +39,20 @@ void Training::set_has_student(bool status){
     this->has_student = status;
 }
 
-Student Training::get_preference(int order_preference) const {
+Preference Training::get_preference(int order_preference) const {
     if (preferences.count(order_preference) == 0){
         perror("Preference key doesn't exist in preferences map");
-        return;
+        return (Preference) nullptr;
     }
     return preferences.at(order_preference);
 }
 
-map<int, Student> Training::get_preferences() const{
+map<int, Preference> Training::get_preferences() const{
     return preferences;
 }
 
-void Training::set_preference(int order_preference, Student student){
-    preferences.insert({order_preference, student});
+void Training::set_preference(int order_preference, Preference preference){
+    preferences.insert({order_preference, preference});
 }
 
 void Training::remove_preference(int order_preference){

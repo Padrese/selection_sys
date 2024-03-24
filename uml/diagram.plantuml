@@ -2,17 +2,14 @@
 
 SelectiveSystem ..> Student
 Behavior ..> Student
-Training ..> Student
-Student ..> Training
-Couple ..> Student
-Couple ..> Training
-
+Training ..> Preference
+Student ..> Preference
 
 class Student {
     -id : long
     -behavior : Behavior
     -grades : unordered_map<string, int>
-    -preferences : map<int, Training> 
+    -preferences : map<int, Preference> 
     -has_training: bool
     +get_id() : long
     +get_behavior() : Behavior
@@ -20,12 +17,12 @@ class Student {
     +remove_grade(string id_grade) : void
     +clear_all_grades() : void
     +get_grade(string id_grade) : int
-    +get_preference(int order_preference) : Training
-    +get_preferences() : map<int, Training> 
+    +get_preference(int order_preference) : Preference
+    +get_preferences() : map<int,Preference> 
     +set_behavior(Behavior behavior) : void
     +push_grade(string id_grade, int grade) : void
     +remove_grade(int grade) : void
-    +add_preference(int order_preference, Training training) : void
+    +add_preference(int order_preference, Preference preference) : void
     +remove_preference(int order_preference) : void
     +switch_preferences(int order_pref_1, int order_pref_2) : void
     +remove_all_preferences() : void
@@ -37,12 +34,14 @@ class SelectiveSystem {
     -system_name : string
     -students: unordered_map<long,Student>
     -trainings: unordered_map<string,Training>
-    + gale_shapley() : map<string, Couple> 
+    + gale_shapley() : map<string, long> 
     + get_system_name() : string
     + get_students(): unordered_map<long,Student>
     + get_trainings(): unordered_map<string,Training>
     + add_student(Student student): void
     + add_training(Training training): void
+    + get_student(long student_id): Student
+    + get_training(string training_id): Training
     + remove_student(): void
     + remove_training(): void
     + clear_all(): void
@@ -54,20 +53,29 @@ class Training {
     - location : string
     - ranking : int
     - has_student : bool
-    - preferences : map<int, Student> 
+    - preferences : map<int, Preference> 
     + get_name() : string
     + get_theme() : string
     + get_location() : string
     + get_ranking() : int
     + get_has_student: bool
-    + get_preference(int order_preference) : Student
-    + get_preferences() : map<int, Student> 
+    + get_preference(int order_preference) : Preference
+    + get_preferences() : map<int, Preference> 
     + set_ranking(int ranking) : void
     + set_has_student(bool status): void
-    + set_preference(int order_preference, Student student) : void
+    + set_preference(int order_preference, Preference preference) : void
     + remove_preference(int order_preference) : void
     + switch_preferences(int order_pref_1, int order_pref_2) : void
     + remove_all_preferences() : void
+}
+
+class Preference{
+    - student_id: long
+    - training_name: string
+    + get_student_id(): long
+    + get_training_name(): string
+    + set_student_id(long student_id): void
+    + set_training_name(string training_name): void
 }
 
 
@@ -96,15 +104,6 @@ class Behavior {
     +set_detention_hours(int nb_detention_hours) : void
     +set_reports(int nb_reports) : void
     +set_disciplinary_boards(int nb_disciplinary_boards) : void
-}
-
-class Couple {
-    -student : Student
-    -training : Training
-    + get_student() : Student
-    + get_training() : Training
-    + set_student(Student student) : void
-    + set_training(Training training) : void
 }
 
 

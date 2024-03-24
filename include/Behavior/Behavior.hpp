@@ -1,7 +1,10 @@
+#pragma once
+
 #ifndef DEF_BEHAVIOR
 #define DEF_BEHAVIOR
 
 #include <string>
+
 using namespace std;
 
 class Behavior{
@@ -20,17 +23,7 @@ class Behavior{
     public:
 
     //Constructor
-    Behavior(); //We use this one when we know no information about the student
-
-
-    Behavior(int justified_absences, //We use this one when we know partial or total information
-    int unjustified_absences,
-    int justified_delays,
-    int unjustified_delays,
-    bool personal_issues,
-    int detention_hours,
-    int reports,
-    int disciplinary_boards);
+    Behavior();
 
     //Destructor
     ~Behavior();

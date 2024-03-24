@@ -1,8 +1,11 @@
+#pragma once
+
 #ifndef DEF_TRAINING
 #define DEF_TRAINING
 
 #include <string>
-#include "../Student/Student.hpp"
+#include <map>
+#include "../Preference/Preference.hpp"
 
 using namespace std;
 
@@ -14,7 +17,7 @@ class Training{
     string theme;
     string location;
     int ranking;
-    map<int, Student> preferences;
+    map<int, Preference> preferences;
     bool has_student;
 
     public:
@@ -33,9 +36,9 @@ class Training{
     void set_ranking(int ranking);
     bool get_has_student() const;
     void set_has_student(bool status);
-    Student get_preference(int order_preference) const;
-    map<int, Student> get_preferences() const;
-    void set_preference(int order_preference, Student student);
+    Preference get_preference(int order_preference) const;
+    map<int, Preference> get_preferences() const;
+    void set_preference(int order_preference, Preference preference);
     void remove_preference(int order_preference);
     void switch_preferences(int order_pref_1, int order_pref_2);
     void remove_all_preferences();

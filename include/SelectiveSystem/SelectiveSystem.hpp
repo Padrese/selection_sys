@@ -1,12 +1,14 @@
+#pragma once
+
 #ifndef DEF_SELECTIVE_SYSTEM
 #define DEF_SELECTIVE_SYSTEM
 
 #include <string>
 #include <map>
-#include <vector>
-using namespace std;
+#include "../Training/Training.hpp"
+#include "../Student/Student.hpp"
 
-#include "../Couple/Couple.hpp"
+using namespace std;
 
 class SelectiveSystem{
 
@@ -23,12 +25,14 @@ class SelectiveSystem{
     //Destructor
     ~SelectiveSystem();
 
-    map<string, Couple> gale_shapley() const;
+    map<string, long> gale_shapley() const;
     string get_system_name() const;
     unordered_map<long,Student> get_students() const;
     unordered_map<string,Training> get_trainings() const;
     void add_student(Student student);
     void add_training(Training training);
+    Student get_student(long student_id) const;
+    Training get_training(string training_name) const;
     void clear_all();
 
 };

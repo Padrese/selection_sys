@@ -2,25 +2,6 @@
 
 Behavior::Behavior(){}
 
-Behavior::Behavior(int justified_absences = 0,
-    int unjustified_absences = 0,
-    int justified_delays = 0,
-    int unjustified_delays = 0,
-    bool personal_issues = 0,
-    int detention_hours = 0,
-    int reports = 0,
-    int disciplinary_boards = 0){
-
-    this->justified_absences = justified_absences;
-    this->unjustified_absences = unjustified_absences;
-    this->justified_delays = justified_delays;
-    this->unjustified_delays = unjustified_delays;
-    this->personal_issues = personal_issues;
-    this->detention_hours = detention_hours;
-    this->reports = reports;
-    this->disciplinary_boards = disciplinary_boards;
-}
-
 Behavior::~Behavior(){}
 
 int Behavior::get_justified_absences(){

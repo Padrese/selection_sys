@@ -1,6 +1,7 @@
 @startuml diagram
 
 SelectiveSystem ..> Student
+SelectiveSystem ..> Training
 Behavior ..> Student
 Training ..> Preference
 Student ..> Preference

@@ -8,11 +8,11 @@ Couple::Couple(Student student, Training training){
 Couple::~Couple(){}
 
 Student Couple::get_student() const{
-    return this->student;
+    return student;
 }
 
 Training Couple::get_training() const{
-    return this->training;
+    return training;
 }
 
 void Couple::set_student(Student student){

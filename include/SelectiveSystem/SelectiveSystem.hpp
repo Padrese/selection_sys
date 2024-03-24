@@ -23,10 +23,13 @@ class SelectiveSystem{
     //Destructor
     ~SelectiveSystem();
 
-    map<long, Couple> gale_shapley();
+    map<long, Couple> gale_shapley() const;
     string get_system_name() const;
     vector<Student> get_students() const;
     vector<Training> get_trainings() const;
+    void add_student(Student student);
+    void add_training(Training training);
+    void clear_all();
 
 };
 

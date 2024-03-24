@@ -24,35 +24,35 @@ Behavior::Behavior(int justified_absences = 0,
 Behavior::~Behavior(){}
 
 int Behavior::get_justified_absences(){
-    return this->justified_absences;
+    return justified_absences;
 }
 
 int Behavior::get_unjustified_absences(){
-    return this->unjustified_absences;
+    return unjustified_absences;
 }
 
 int Behavior::get_justified_delays(){
-    return this->justified_delays;
+    return justified_delays;
 }
 
 int Behavior::get_unjustified_delays(){
-    return this->unjustified_delays;
+    return unjustified_delays;
 }
 
 bool Behavior::get_personal_issues(){
-    return this->personal_issues;
+    return personal_issues;
 }
 
 int Behavior::get_detention_hours(){
-    return this->detention_hours;
+    return detention_hours;
 }
 
 int Behavior::get_reports(){
-    return this->reports;
+    return reports;
 }
 
 int Behavior::get_disciplinary_boards(){
-    return this->disciplinary_boards;
+    return disciplinary_boards;
 }
 
 void Behavior::set_justified_absences(int nb_justified_absences){

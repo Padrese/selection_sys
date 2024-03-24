@@ -3,25 +3,31 @@
 SelectiveSystem ..> Student
 Behavior ..> Student
 Training ..> Student
+Student ..> Training
 Couple ..> Student
 Couple ..> Training
 
 
 class Student {
-    -id : int
+    -id : long
     -behavior : Behavior
     -grades : unordered_map<string, int>
     -preferences : map<int, Training> 
-    +get_id() : int
+    -has_training: bool
+    +get_id() : long
     +get_behavior() : Behavior
     +get_grade(string id_grade) : int
-    +get_preferences() : map<string, Training> 
+    +get_preference(int order_preference) : Training
+    +get_preferences() : map<int, Training> 
     +set_behavior(Behavior behavior) : void
     +push_grade(string id_grade, int grade) : void
     +remove_grade(int grade) : void
-    +set_preference(Training training) : void
-    +remove_preference(Training training) : void
+    +set_preference(int order_preference, Training training) : void
+    +remove_preference(int order_preference) : void
+    +switch_preferences(int order_pref_1, int order_pref_2) : void
     +remove_all_preferences() : void
+    +get_has_training(): bool
+    +set_has_training(bool status): void
 }
 
 class SelectiveSystem {
@@ -30,6 +36,11 @@ class SelectiveSystem {
     -trainings: vector<Training>
     + gale_shapley() : map<long, Couple> 
     + get_system_name() : string
+    + add_student(Student student): void
+    + add_training(Training training): void
+    + remove_student(): void
+    + remove_training(): void
+    + clear_all(): void
 }
 
 class Training {
@@ -37,11 +48,21 @@ class Training {
     - theme : string
     - location : string
     - ranking : int
+    - has_student : bool
+    - preferences : map<int, Student> 
     + get_name() : string
     + get_theme() : string
     + get_location() : string
     + get_ranking() : int
+    + get_has_student: bool
+    + get_preference(int order_preference) : Student
+    + get_preferences() : map<int, Student> 
     + set_ranking(int ranking) : void
+    + set_has_student(bool status): void
+    + set_preference(int order_preference, Student student) : void
+    + remove_preference(int order_preference) : void
+    + switch_preferences(int order_pref_1, int order_pref_2) : void
+    + remove_all_preferences() : void
 }
 
 

@@ -2,7 +2,7 @@
 #define DEF_TRAINING
 
 #include <string>
-#include "../include/Student/Student.hpp"
+#include "../Student/Student.hpp"
 
 using namespace std;
 
@@ -25,7 +25,6 @@ class Training{
 
     //Destructor
     ~Training();
-
 
     string get_name() const;
     string get_theme() const;

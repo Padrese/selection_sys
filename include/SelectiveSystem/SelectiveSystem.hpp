@@ -6,14 +6,14 @@
 #include <vector>
 using namespace std;
 
-#include "../include/Couple/Couple.hpp"
+#include "../Couple/Couple.hpp"
 
 class SelectiveSystem{
 
     private:
     string system_name;
-    vector<Student> students;
-    vector<Training> trainings;
+    unordered_map<long,Student> students;
+    unordered_map<string,Training> trainings;
 
     public:
 
@@ -23,10 +23,10 @@ class SelectiveSystem{
     //Destructor
     ~SelectiveSystem();
 
-    map<long, Couple> gale_shapley() const;
+    map<string, Couple> gale_shapley() const;
     string get_system_name() const;
-    vector<Student> get_students() const;
-    vector<Training> get_trainings() const;
+    unordered_map<long,Student> get_students() const;
+    unordered_map<string,Training> get_trainings() const;
     void add_student(Student student);
     void add_training(Training training);
     void clear_all();

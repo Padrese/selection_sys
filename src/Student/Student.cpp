@@ -3,12 +3,16 @@
 
 using namespace std;
 
-Student::Student(long id){
+Student::Student(long id = -1){
     this->id = id;
     this->has_training = false;
 }
 
 Student::~Student(){}
+
+bool Student::operator==(Student &other) const{
+    return (this->id == other.id);
+}
 
 long Student::get_id() const{
     return id;
@@ -17,6 +21,19 @@ long Student::get_id() const{
 Behavior Student::get_behavior() const{
     return behavior;
 }
+
+void Student::add_grade(string id_grade, int grade){
+    this->grades.insert({id_grade, grade});
+}
+
+void Student::remove_grade(string id_grade){
+    this->grades.erase(id_grade);
+}
+
+void Student::clear_all_grades(){
+    this->grades.clear();
+}
+
 
 int Student::get_grade(string id_grade) const{
     if (grades.count(id_grade) > 0){

@@ -4,8 +4,8 @@
 #include <unordered_map>
 #include <map>
 
-#include "../include/Training/Training.hpp"
-#include "../include/Behavior/Behavior.hpp"
+#include "../Training/Training.hpp"
+#include "../Behavior/Behavior.hpp"
 
 using namespace std;
 
@@ -26,15 +26,20 @@ class Student{
     //Destructor
     ~Student();
 
+    bool operator==(Student &other) const;
+
     long get_id() const;
     Behavior get_behavior() const;
+    void add_grade(string id_grade, int grade);
+    void remove_grade(string id_grade);
+    void clear_all_grades();
     int get_grade(string id_grade) const;
     Training get_preference(int order_preference) const;
     map<int, Training> get_preferences() const;
     void set_behavior(Behavior behavior);
     void push_grade(string id_grade, int grade);
     void remove_grade(string id_grade);
-    void set_preference(int order_preference, Training training);
+    void add_preference(int order_preference, Training training);
     void remove_preference(int order_preference);
     void switch_preferences(int order_pref_1, int order_pref_2);
     void remove_all_preferences();

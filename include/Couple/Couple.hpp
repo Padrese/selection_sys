@@ -1,8 +1,8 @@
 #ifndef DEF_COUPLE
 #define DEF_COUPLE
 
-#include "../include/Student/Student.hpp"
-#include "../include/Training/Training.hpp"
+#include "../Student/Student.hpp"
+#include "../Training/Training.hpp"
 
 class Couple{
 

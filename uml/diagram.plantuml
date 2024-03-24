@@ -16,13 +16,16 @@ class Student {
     -has_training: bool
     +get_id() : long
     +get_behavior() : Behavior
+    +add_grade(string id_grade, int grade) : void
+    +remove_grade(string id_grade) : void
+    +clear_all_grades() : void
     +get_grade(string id_grade) : int
     +get_preference(int order_preference) : Training
     +get_preferences() : map<int, Training> 
     +set_behavior(Behavior behavior) : void
     +push_grade(string id_grade, int grade) : void
     +remove_grade(int grade) : void
-    +set_preference(int order_preference, Training training) : void
+    +add_preference(int order_preference, Training training) : void
     +remove_preference(int order_preference) : void
     +switch_preferences(int order_pref_1, int order_pref_2) : void
     +remove_all_preferences() : void
@@ -32,10 +35,12 @@ class Student {
 
 class SelectiveSystem {
     -system_name : string
-    -students: vector<Student>
-    -trainings: vector<Training>
-    + gale_shapley() : map<long, Couple> 
+    -students: unordered_map<long,Student>
+    -trainings: unordered_map<string,Training>
+    + gale_shapley() : map<string, Couple> 
     + get_system_name() : string
+    + get_students(): unordered_map<long,Student>
+    + get_trainings(): unordered_map<string,Training>
     + add_student(Student student): void
     + add_training(Training training): void
     + remove_student(): void

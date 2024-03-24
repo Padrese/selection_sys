@@ -1,0 +1,2 @@
+/usr/bin/ar qc libbehavior.a CMakeFiles/behavior.dir/Behavior/Behavior.cpp.o
+/usr/bin/ranlib libbehavior.a

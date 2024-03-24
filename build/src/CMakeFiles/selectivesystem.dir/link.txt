@@ -1,0 +1,2 @@
+/usr/bin/ar qc libselectivesystem.a CMakeFiles/selectivesystem.dir/SelectiveSystem/SelectiveSystem.cpp.o
+/usr/bin/ranlib libselectivesystem.a

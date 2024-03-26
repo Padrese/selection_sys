@@ -35,6 +35,7 @@ class Student{
     void add_grade(string id_grade, int grade);
     void remove_grade(string id_grade);
     void clear_all_grades();
+    unordered_map<string, int> get_grades() const;
     int get_grade(string id_grade) const;
     Preference get_preference(int order_preference) const;
     map<int, Preference> get_preferences() const;

@@ -38,7 +38,7 @@ TEST(TestStudent, StudentCompTrue){
  * @brief Tests adding and getting a student's grade.
  * 
  */
-TEST(TestStudent, StudentGradeTrue){
+TEST(TestStudent, StudentGradeAddGetTrue){
     Student student(1234);
     student.add_grade("0001", 16);
     EXPECT_EQ(student.get_grade("0001"), 16);
@@ -48,7 +48,7 @@ TEST(TestStudent, StudentGradeTrue){
  * @brief Tests removing a student's grade and checking 
  * that it is not present anymore.
  */
-TEST(TestStudent, StudentGradeFalse){
+TEST(TestStudent, StudentGradeAddGetFalse){
     Student student(1234);
     student.add_grade("0001", 16);   
     student.add_grade("0002", 6);   
@@ -56,3 +56,34 @@ TEST(TestStudent, StudentGradeFalse){
     student.remove_grade("0002");   
     EXPECT_EQ(student.get_grade("0002"),-1);
 }
+
+/**
+ * @brief Tests clearing grades for a student.
+ * 
+ */
+TEST(TestStudent, StudentGradeClear){
+    Student student(1234);
+    student.add_grade("0001", 16);   
+    student.add_grade("0002", 6);   
+    student.add_grade("0003", 11);
+    student.clear_all_grades();
+    EXPECT_EQ(student.get_grades().size(), 0);
+}
+
+/**
+ * @brief Tests adding and getting a preference.
+ * 
+ */
+TEST(TestStudent, StudentPreferenceAddGetTrue){
+    Student student(1234);
+    Preference preference("Harvard");
+    student.add_preference(1, preference);
+    EXPECT_EQ(student.get_preference(1).get_training_name(), "Harvard");
+}
+
+/**
+ * @brief Tests removing a preference and check that it is not here anymore.
+ * If preference k has been removed, preference order indexes k' for k' >= k should be 
+ * adapted to the new context.
+ */
+

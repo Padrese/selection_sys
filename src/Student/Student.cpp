@@ -50,8 +50,14 @@ int Student::get_grade(string id_grade) const{
 }
 
 Preference Student::get_preference(int order_preference) const {
-    if (preferences.count(order_preference) == 0){
-        perror("Preference key doesn't exist in preferences map");
+    int counter = preferences.count(order_preference);
+    try {
+        if (counter == 0){
+            throw string("Order preference doesn't exist in preferences list");
+        }
+    }
+    catch(string &e){
+        cerr << "Order preference doesn't exist in preferences list" << endl;
         return (Preference) nullptr;
     }
     return preferences.at(order_preference);
@@ -59,6 +65,10 @@ Preference Student::get_preference(int order_preference) const {
 
 map<int, Preference> Student::get_preferences() const{
     return preferences;
+}
+
+int Student::get_nb_preferences() const{
+    return preferences.size();
 }
 
 void Student::set_behavior(Behavior behavior){
@@ -73,8 +83,13 @@ void Student::add_preference(int order_preference, Preference preference){
     int initial_map_size = preferences.size();
 
     //Check index of preference
-    if (order_preference > initial_map_size+1 || order_preference < 0){
-        perror("Index error: Order preference doesn't match the logical sequence already in place");
+    try{
+        if (order_preference > initial_map_size+1 || order_preference < 0){
+            throw string("Index error: Order preference doesn't match the logical sequence already in place");
+        }
+    }
+    catch(string &e){
+        cerr << "Index error: Order preference doesn't match the logical sequence already in place" << endl;
         return;
     }
 
@@ -84,7 +99,7 @@ void Student::add_preference(int order_preference, Preference preference){
     keys are const elements.
     */
 
-    else if (order_preference < initial_map_size+1){
+    if (order_preference < initial_map_size+1){
         preferences[initial_map_size+1] = preferences[initial_map_size];
             for (map<int, Preference>::reverse_iterator it = preferences.rbegin(); it != preferences.rend(); ++it){
                 int key = it->first;
@@ -102,13 +117,20 @@ void Student::add_preference(int order_preference, Preference preference){
 
 void Student::remove_preference(int order_preference){
     int initial_map_size = preferences.size();
-    if (order_preference > initial_map_size || order_preference < 0){
-        perror("Index error: Order preference doesn't match the logical sequence already in place");
-        return;     
+
+    try{
+        if (order_preference > initial_map_size || order_preference < 0){
+            throw string("Index error: Order preference doesn't match the logical sequence already in place");
+        }
     }
+    catch(string &e){
+        cerr << "Index error: Order preference doesn't match the logical sequence already in place" << endl;
+        return;
+    }
+
     preferences.erase(order_preference);
 
-    /*We adapt the index of preferences when removing a preference
+    /**We adapt the index of preferences when removing a preference
     only if we do not remove the last position preference.
     We cannot do parallel programming to move key indexes as
     keys are const elements.
@@ -123,13 +145,13 @@ void Student::remove_preference(int order_preference){
                 */
                 if (key > order_preference){
                     if (key != preferences.size()+1){
-                    preferences[key] = preferences[next(it, 1)->first]; 
-                    }
-                    else {
-                        preferences.erase(key);
+                        preferences[key] = preferences[next(it, 1)->first]; 
                     }
                 }
             }
+
+            //We remove the last element, which is superfluous
+            preferences.erase(initial_map_size);
 
             /*Finally, we create the key-value pair where the value linked to the removed key
             matches the new preference order.*/
@@ -138,7 +160,23 @@ void Student::remove_preference(int order_preference){
 }
 
 void Student::switch_preferences(int order_pref_1, int order_pref_2){
-    //TODO
+    //TODO: check input for order_prefs
+    int map_size = preferences.size();
+
+    try{
+        if (order_pref_1 > map_size || order_pref_1 < 0
+            || order_pref_2 > map_size || order_pref_2 < 0){
+            throw string("Index error: Order preference doesn't match the logical sequence already in place");
+        }
+    }
+    catch(string &e){
+        cerr << "Index error: Order preference doesn't match the logical sequence already in place" << endl;
+        return;
+    }
+
+    Preference preference_to_store = preferences[order_pref_2];
+    preferences[order_pref_2] = preferences[order_pref_1];
+    preferences[order_pref_1] = preference_to_store;
 }
 
 void Student::remove_all_preferences(){

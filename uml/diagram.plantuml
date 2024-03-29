@@ -20,6 +20,7 @@ class Student {
     +get_grade(string id_grade) : int
     +get_preference(int order_preference) : Preference
     +get_preferences() : map<int,Preference> 
+    +get_nb_preferences(): int
     +set_behavior(Behavior behavior) : void
     +push_grade(string id_grade, int grade) : void
     +remove_grade(int grade) : void

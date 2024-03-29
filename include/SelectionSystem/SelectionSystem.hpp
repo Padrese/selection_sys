@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef DEF_SELECTIVE_SYSTEM
-#define DEF_SELECTIVE_SYSTEM
+#ifndef DEF_SELECTION_SYSTEM
+#define DEF_SELECTION_SYSTEM
 
 #include <string>
 #include <map>
@@ -10,7 +10,7 @@
 
 using namespace std;
 
-class SelectiveSystem{
+class SelectionSystem{
 
     private:
     string system_name;
@@ -20,10 +20,10 @@ class SelectiveSystem{
     public:
 
     //Constructor
-    SelectiveSystem(string system_name);
+    SelectionSystem(string system_name);
 
     //Destructor
-    ~SelectiveSystem();
+    ~SelectionSystem();
 
     map<string, long> gale_shapley() const;
     string get_system_name() const;

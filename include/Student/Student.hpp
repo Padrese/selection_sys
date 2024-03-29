@@ -39,6 +39,7 @@ class Student{
     int get_grade(string id_grade) const;
     Preference get_preference(int order_preference) const;
     map<int, Preference> get_preferences() const;
+    int get_nb_preferences() const;
     void set_behavior(Behavior behavior);
     void push_grade(string id_grade, int grade);
     void add_preference(int order_preference, Preference preference);

@@ -1,12 +1,12 @@
-#include "../../include/SelectiveSystem/SelectiveSystem.hpp"
+#include "../../include/SelectionSystem/SelectionSystem.hpp"
 
-SelectiveSystem::SelectiveSystem(string system_name){
+SelectionSystem::SelectionSystem(string system_name){
     this->system_name = system_name;
 }
 
-SelectiveSystem::~SelectiveSystem(){}
+SelectionSystem::~SelectionSystem(){}
 
-map<string, long> SelectiveSystem::gale_shapley() const{
+map<string, long> SelectionSystem::gale_shapley() const{
 
     map<string, long> results;
 
@@ -65,34 +65,34 @@ map<string, long> SelectiveSystem::gale_shapley() const{
     return results;
 }
 
-string SelectiveSystem::get_system_name() const{
+string SelectionSystem::get_system_name() const{
     return system_name;
 }
 
-unordered_map<long,Student> SelectiveSystem::get_students() const{
+unordered_map<long,Student> SelectionSystem::get_students() const{
     return students;
 }
-unordered_map<string,Training> SelectiveSystem::get_trainings() const{
+unordered_map<string,Training> SelectionSystem::get_trainings() const{
     return trainings;
 }
 
-void SelectiveSystem::add_student(Student student){
+void SelectionSystem::add_student(Student student){
     this->students.insert({student.get_id(), student});
 }
 
-void SelectiveSystem::add_training(Training training){
+void SelectionSystem::add_training(Training training){
     this->trainings.insert({training.get_name(), training});
 }
 
-Student SelectiveSystem::get_student(long student_id) const{
+Student SelectionSystem::get_student(long student_id) const{
     return students.at(student_id);
 }
 
-Training SelectiveSystem::get_training(string training_name) const{
+Training SelectionSystem::get_training(string training_name) const{
     return trainings.at(training_name);
 }
 
-void SelectiveSystem::clear_all(){
+void SelectionSystem::clear_all(){
     this->students.clear();
     this->trainings.clear();
 }

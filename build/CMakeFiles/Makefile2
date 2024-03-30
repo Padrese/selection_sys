@@ -154,9 +154,7 @@ demo/clean:
 # Directory level rules for directory src
 
 # Recursive "all" directory target.
-src/all: src/CMakeFiles/student.dir/all
-src/all: src/CMakeFiles/selectivesystem.dir/all
-src/all: src/CMakeFiles/training.dir/all
+src/all: src/CMakeFiles/selectionsystem.dir/all
 .PHONY : src/all
 
 # Recursive "preinstall" directory target.
@@ -164,16 +162,18 @@ src/preinstall:
 .PHONY : src/preinstall
 
 # Recursive "clean" directory target.
-src/clean: src/CMakeFiles/student.dir/clean
-src/clean: src/CMakeFiles/selectivesystem.dir/clean
-src/clean: src/CMakeFiles/training.dir/clean
+src/clean: src/CMakeFiles/selectionsystem.dir/clean
 .PHONY : src/clean
 
 #=============================================================================
 # Directory level rules for directory test
 
 # Recursive "all" directory target.
+test/all: test/CMakeFiles/test_preference.dir/all
 test/all: test/CMakeFiles/test_student.dir/all
+test/all: test/CMakeFiles/test_selection_system.dir/all
+test/all: test/CMakeFiles/test_training.dir/all
+test/all: test/CMakeFiles/test_sys_actor.dir/all
 .PHONY : test/all
 
 # Recursive "preinstall" directory target.
@@ -181,7 +181,11 @@ test/preinstall:
 .PHONY : test/preinstall
 
 # Recursive "clean" directory target.
+test/clean: test/CMakeFiles/test_preference.dir/clean
 test/clean: test/CMakeFiles/test_student.dir/clean
+test/clean: test/CMakeFiles/test_selection_system.dir/clean
+test/clean: test/CMakeFiles/test_training.dir/clean
+test/clean: test/CMakeFiles/test_sys_actor.dir/clean
 .PHONY : test/clean
 
 #=============================================================================
@@ -316,96 +320,70 @@ _deps/googletest-build/googletest/CMakeFiles/gtest.dir/clean:
 .PHONY : _deps/googletest-build/googletest/CMakeFiles/gtest.dir/clean
 
 #=============================================================================
-# Target rules for target src/CMakeFiles/student.dir
+# Target rules for target src/CMakeFiles/selectionsystem.dir
 
 # All Build rule for target.
-src/CMakeFiles/student.dir/all:
-	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/student.dir/build.make src/CMakeFiles/student.dir/depend
-	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/student.dir/build.make src/CMakeFiles/student.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alan/Documents/Cours/3A/C++/selection_sys/build/CMakeFiles --progress-num=11,12,13,14 "Built target student"
-.PHONY : src/CMakeFiles/student.dir/all
+src/CMakeFiles/selectionsystem.dir/all:
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/selectionsystem.dir/build.make src/CMakeFiles/selectionsystem.dir/depend
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/selectionsystem.dir/build.make src/CMakeFiles/selectionsystem.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alan/Documents/Cours/3A/C++/selection_sys/build/CMakeFiles --progress-num=9,10,11,12,13,14,15 "Built target selectionsystem"
+.PHONY : src/CMakeFiles/selectionsystem.dir/all
 
 # Build rule for subdir invocation for target.
-src/CMakeFiles/student.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/alan/Documents/Cours/3A/C++/selection_sys/build/CMakeFiles 4
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/student.dir/all
+src/CMakeFiles/selectionsystem.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alan/Documents/Cours/3A/C++/selection_sys/build/CMakeFiles 7
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/selectionsystem.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/alan/Documents/Cours/3A/C++/selection_sys/build/CMakeFiles 0
-.PHONY : src/CMakeFiles/student.dir/rule
+.PHONY : src/CMakeFiles/selectionsystem.dir/rule
 
 # Convenience name for target.
-student: src/CMakeFiles/student.dir/rule
-.PHONY : student
+selectionsystem: src/CMakeFiles/selectionsystem.dir/rule
+.PHONY : selectionsystem
 
 # clean rule for target.
-src/CMakeFiles/student.dir/clean:
-	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/student.dir/build.make src/CMakeFiles/student.dir/clean
-.PHONY : src/CMakeFiles/student.dir/clean
+src/CMakeFiles/selectionsystem.dir/clean:
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/selectionsystem.dir/build.make src/CMakeFiles/selectionsystem.dir/clean
+.PHONY : src/CMakeFiles/selectionsystem.dir/clean
 
 #=============================================================================
-# Target rules for target src/CMakeFiles/selectivesystem.dir
+# Target rules for target test/CMakeFiles/test_preference.dir
 
 # All Build rule for target.
-src/CMakeFiles/selectivesystem.dir/all:
-	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/selectivesystem.dir/build.make src/CMakeFiles/selectivesystem.dir/depend
-	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/selectivesystem.dir/build.make src/CMakeFiles/selectivesystem.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alan/Documents/Cours/3A/C++/selection_sys/build/CMakeFiles --progress-num=9,10 "Built target selectivesystem"
-.PHONY : src/CMakeFiles/selectivesystem.dir/all
+test/CMakeFiles/test_preference.dir/all: src/CMakeFiles/selectionsystem.dir/all
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_preference.dir/build.make test/CMakeFiles/test_preference.dir/depend
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_preference.dir/build.make test/CMakeFiles/test_preference.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alan/Documents/Cours/3A/C++/selection_sys/build/CMakeFiles --progress-num=16,17 "Built target test_preference"
+.PHONY : test/CMakeFiles/test_preference.dir/all
 
 # Build rule for subdir invocation for target.
-src/CMakeFiles/selectivesystem.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/alan/Documents/Cours/3A/C++/selection_sys/build/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/selectivesystem.dir/all
+test/CMakeFiles/test_preference.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alan/Documents/Cours/3A/C++/selection_sys/build/CMakeFiles 9
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/test_preference.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/alan/Documents/Cours/3A/C++/selection_sys/build/CMakeFiles 0
-.PHONY : src/CMakeFiles/selectivesystem.dir/rule
+.PHONY : test/CMakeFiles/test_preference.dir/rule
 
 # Convenience name for target.
-selectivesystem: src/CMakeFiles/selectivesystem.dir/rule
-.PHONY : selectivesystem
+test_preference: test/CMakeFiles/test_preference.dir/rule
+.PHONY : test_preference
 
 # clean rule for target.
-src/CMakeFiles/selectivesystem.dir/clean:
-	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/selectivesystem.dir/build.make src/CMakeFiles/selectivesystem.dir/clean
-.PHONY : src/CMakeFiles/selectivesystem.dir/clean
-
-#=============================================================================
-# Target rules for target src/CMakeFiles/training.dir
-
-# All Build rule for target.
-src/CMakeFiles/training.dir/all:
-	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/training.dir/build.make src/CMakeFiles/training.dir/depend
-	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/training.dir/build.make src/CMakeFiles/training.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alan/Documents/Cours/3A/C++/selection_sys/build/CMakeFiles --progress-num=17,18 "Built target training"
-.PHONY : src/CMakeFiles/training.dir/all
-
-# Build rule for subdir invocation for target.
-src/CMakeFiles/training.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/alan/Documents/Cours/3A/C++/selection_sys/build/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/training.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/alan/Documents/Cours/3A/C++/selection_sys/build/CMakeFiles 0
-.PHONY : src/CMakeFiles/training.dir/rule
-
-# Convenience name for target.
-training: src/CMakeFiles/training.dir/rule
-.PHONY : training
-
-# clean rule for target.
-src/CMakeFiles/training.dir/clean:
-	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/training.dir/build.make src/CMakeFiles/training.dir/clean
-.PHONY : src/CMakeFiles/training.dir/clean
+test/CMakeFiles/test_preference.dir/clean:
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_preference.dir/build.make test/CMakeFiles/test_preference.dir/clean
+.PHONY : test/CMakeFiles/test_preference.dir/clean
 
 #=============================================================================
 # Target rules for target test/CMakeFiles/test_student.dir
 
 # All Build rule for target.
-test/CMakeFiles/test_student.dir/all: src/CMakeFiles/student.dir/all
+test/CMakeFiles/test_student.dir/all: src/CMakeFiles/selectionsystem.dir/all
 	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_student.dir/build.make test/CMakeFiles/test_student.dir/depend
 	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_student.dir/build.make test/CMakeFiles/test_student.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alan/Documents/Cours/3A/C++/selection_sys/build/CMakeFiles --progress-num=15,16 "Built target test_student"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alan/Documents/Cours/3A/C++/selection_sys/build/CMakeFiles --progress-num=20,21 "Built target test_student"
 .PHONY : test/CMakeFiles/test_student.dir/all
 
 # Build rule for subdir invocation for target.
 test/CMakeFiles/test_student.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/alan/Documents/Cours/3A/C++/selection_sys/build/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alan/Documents/Cours/3A/C++/selection_sys/build/CMakeFiles 9
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/test_student.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/alan/Documents/Cours/3A/C++/selection_sys/build/CMakeFiles 0
 .PHONY : test/CMakeFiles/test_student.dir/rule
@@ -418,6 +396,84 @@ test_student: test/CMakeFiles/test_student.dir/rule
 test/CMakeFiles/test_student.dir/clean:
 	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_student.dir/build.make test/CMakeFiles/test_student.dir/clean
 .PHONY : test/CMakeFiles/test_student.dir/clean
+
+#=============================================================================
+# Target rules for target test/CMakeFiles/test_selection_system.dir
+
+# All Build rule for target.
+test/CMakeFiles/test_selection_system.dir/all: src/CMakeFiles/selectionsystem.dir/all
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_selection_system.dir/build.make test/CMakeFiles/test_selection_system.dir/depend
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_selection_system.dir/build.make test/CMakeFiles/test_selection_system.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alan/Documents/Cours/3A/C++/selection_sys/build/CMakeFiles --progress-num=18,19 "Built target test_selection_system"
+.PHONY : test/CMakeFiles/test_selection_system.dir/all
+
+# Build rule for subdir invocation for target.
+test/CMakeFiles/test_selection_system.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alan/Documents/Cours/3A/C++/selection_sys/build/CMakeFiles 9
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/test_selection_system.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alan/Documents/Cours/3A/C++/selection_sys/build/CMakeFiles 0
+.PHONY : test/CMakeFiles/test_selection_system.dir/rule
+
+# Convenience name for target.
+test_selection_system: test/CMakeFiles/test_selection_system.dir/rule
+.PHONY : test_selection_system
+
+# clean rule for target.
+test/CMakeFiles/test_selection_system.dir/clean:
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_selection_system.dir/build.make test/CMakeFiles/test_selection_system.dir/clean
+.PHONY : test/CMakeFiles/test_selection_system.dir/clean
+
+#=============================================================================
+# Target rules for target test/CMakeFiles/test_training.dir
+
+# All Build rule for target.
+test/CMakeFiles/test_training.dir/all: src/CMakeFiles/selectionsystem.dir/all
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_training.dir/build.make test/CMakeFiles/test_training.dir/depend
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_training.dir/build.make test/CMakeFiles/test_training.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alan/Documents/Cours/3A/C++/selection_sys/build/CMakeFiles --progress-num=24,25 "Built target test_training"
+.PHONY : test/CMakeFiles/test_training.dir/all
+
+# Build rule for subdir invocation for target.
+test/CMakeFiles/test_training.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alan/Documents/Cours/3A/C++/selection_sys/build/CMakeFiles 9
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/test_training.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alan/Documents/Cours/3A/C++/selection_sys/build/CMakeFiles 0
+.PHONY : test/CMakeFiles/test_training.dir/rule
+
+# Convenience name for target.
+test_training: test/CMakeFiles/test_training.dir/rule
+.PHONY : test_training
+
+# clean rule for target.
+test/CMakeFiles/test_training.dir/clean:
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_training.dir/build.make test/CMakeFiles/test_training.dir/clean
+.PHONY : test/CMakeFiles/test_training.dir/clean
+
+#=============================================================================
+# Target rules for target test/CMakeFiles/test_sys_actor.dir
+
+# All Build rule for target.
+test/CMakeFiles/test_sys_actor.dir/all: src/CMakeFiles/selectionsystem.dir/all
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_sys_actor.dir/build.make test/CMakeFiles/test_sys_actor.dir/depend
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_sys_actor.dir/build.make test/CMakeFiles/test_sys_actor.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alan/Documents/Cours/3A/C++/selection_sys/build/CMakeFiles --progress-num=22,23 "Built target test_sys_actor"
+.PHONY : test/CMakeFiles/test_sys_actor.dir/all
+
+# Build rule for subdir invocation for target.
+test/CMakeFiles/test_sys_actor.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alan/Documents/Cours/3A/C++/selection_sys/build/CMakeFiles 9
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/test_sys_actor.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alan/Documents/Cours/3A/C++/selection_sys/build/CMakeFiles 0
+.PHONY : test/CMakeFiles/test_sys_actor.dir/rule
+
+# Convenience name for target.
+test_sys_actor: test/CMakeFiles/test_sys_actor.dir/rule
+.PHONY : test_sys_actor
+
+# clean rule for target.
+test/CMakeFiles/test_sys_actor.dir/clean:
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_sys_actor.dir/build.make test/CMakeFiles/test_sys_actor.dir/clean
+.PHONY : test/CMakeFiles/test_sys_actor.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

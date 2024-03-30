@@ -340,8 +340,11 @@ test/CMakeFiles/test_student.dir/test_student.cpp.o: ../test/test_student.cpp \
   /usr/include/gtest/gtest_pred_impl.h \
   ../include/Student/Student.hpp \
   ../include/Behavior/Behavior.hpp \
+  ../include/SystemActor/SystemActor.hpp \
   ../include/Preference/Preference.hpp
 
+
+../include/SystemActor/SystemActor.hpp:
 
 ../include/Behavior/Behavior.hpp:
 

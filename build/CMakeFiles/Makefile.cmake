@@ -102,8 +102,10 @@ set(CMAKE_DEPEND_INFO_FILES
   "_deps/googletest-build/googlemock/CMakeFiles/gmock.dir/DependInfo.cmake"
   "_deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/DependInfo.cmake"
   "_deps/googletest-build/googletest/CMakeFiles/gtest.dir/DependInfo.cmake"
-  "src/CMakeFiles/student.dir/DependInfo.cmake"
-  "src/CMakeFiles/selectivesystem.dir/DependInfo.cmake"
-  "src/CMakeFiles/training.dir/DependInfo.cmake"
+  "src/CMakeFiles/selectionsystem.dir/DependInfo.cmake"
+  "test/CMakeFiles/test_preference.dir/DependInfo.cmake"
   "test/CMakeFiles/test_student.dir/DependInfo.cmake"
+  "test/CMakeFiles/test_selection_system.dir/DependInfo.cmake"
+  "test/CMakeFiles/test_training.dir/DependInfo.cmake"
+  "test/CMakeFiles/test_sys_actor.dir/DependInfo.cmake"
   )

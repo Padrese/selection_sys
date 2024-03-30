@@ -7,16 +7,15 @@
 #include <map>
 
 #include "../Behavior/Behavior.hpp"
-#include "../Preference/Preference.hpp"
+#include "../SystemActor/SystemActor.hpp"
 
 using namespace std;
 
-class Student{
+class Student : public SystemActor{
     private:
     long id;
     Behavior behavior;
     unordered_map<string, int> grades;
-    map<int, Preference> preferences;
     bool has_training;
 
     public:
@@ -37,15 +36,8 @@ class Student{
     void clear_all_grades();
     unordered_map<string, int> get_grades() const;
     int get_grade(string id_grade) const;
-    Preference get_preference(int order_preference) const;
-    map<int, Preference> get_preferences() const;
-    int get_nb_preferences() const;
     void set_behavior(Behavior behavior);
     void push_grade(string id_grade, int grade);
-    void add_preference(int order_preference, Preference preference);
-    void remove_preference(int order_preference);
-    void switch_preferences(int order_pref_1, int order_pref_2);
-    void remove_all_preferences();
     bool get_has_training() const;
     void set_has_training(bool status);
 };

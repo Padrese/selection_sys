@@ -341,5 +341,6 @@ test/CMakeFiles/test_student.dir/test_student.cpp.o
  /usr/include/gtest/gtest_pred_impl.h
  /home/alan/Documents/Cours/3A/C++/selection_sys/include/Student/Student.hpp
  /home/alan/Documents/Cours/3A/C++/selection_sys/include/Behavior/Behavior.hpp
+ /home/alan/Documents/Cours/3A/C++/selection_sys/include/SystemActor/SystemActor.hpp
  /home/alan/Documents/Cours/3A/C++/selection_sys/include/Preference/Preference.hpp
 

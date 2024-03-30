@@ -1,0 +1,2 @@
+/usr/bin/ar qc libselectionsystem.a CMakeFiles/selectionsystem.dir/SelectionSystem/SelectionSystem.cpp.o CMakeFiles/selectionsystem.dir/SystemActor/SystemActor.cpp.o CMakeFiles/selectionsystem.dir/Student/Student.cpp.o CMakeFiles/selectionsystem.dir/Training/Training.cpp.o CMakeFiles/selectionsystem.dir/Preference/Preference.cpp.o CMakeFiles/selectionsystem.dir/Behavior/Behavior.cpp.o
+/usr/bin/ranlib libselectionsystem.a

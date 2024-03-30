@@ -1,4 +1,6 @@
 #include "../../include/SelectionSystem/SelectionSystem.hpp"
+#include <iostream>
+using namespace std;
 
 SelectionSystem::SelectionSystem(string system_name){
     this->system_name = system_name;
@@ -17,33 +19,38 @@ map<string, long> SelectionSystem::gale_shapley() const{
 
 
     //At the beginning, no one is assigned to a couple
-    bool all_assigned = false;
+    bool all_assigned;
     Student current_student;
-    bool has_broken;
 
-    while (all_assigned == false){
-        bool has_broken = false;
+    while (true){
+        all_assigned = true;
 
-        for (const auto student: students){
+        for (auto &student: students){
             current_student = student.second;
             if (current_student.get_has_training() == false){
-                has_broken = true;
+                all_assigned = false;
                 break;
             }
         }
 
-        if (has_broken == false){
-            all_assigned = true; //Everyone is assigned
+        if (all_assigned == true){ 
+            break; //loop exit when everyone is assigned
         }
+
         else {
             //Find the most preferred training for the student
             Training most_preferred_training = trainings.at(current_student.get_preference(1).get_training_name());
 
+            cout << "Current student: " << current_student.get_id() << endl;
+            cout << "Most preferred training: " << most_preferred_training.get_name() << endl;
+
             //Student and training form a couple if the training isn't already assigned to a student
             if (most_preferred_training.get_has_student() == false){
                 most_preferred_training.set_has_student(true);
-                current_student.set_has_training(true);  
-                results.insert({most_preferred_training.get_name(), current_student.get_id()});
+                current_student.set_has_training(true); 
+                std::cout << current_student.get_id() << std::endl;
+                students[current_student.get_id()] = current_student; //Update status of student in the students
+                results[most_preferred_training.get_name()] = current_student.get_id();
             }
 
             //Otherwise, there exists another student preferred by the training 
@@ -53,10 +60,10 @@ map<string, long> SelectionSystem::gale_shapley() const{
 
                 //Breaking the old couple here, if there is an equality, do nothing
                 if (most_preferred_student.get_id() != actual_preferred_student.get_id()){
-                    results.erase(most_preferred_training.get_name());
                     actual_preferred_student.set_has_training(false);
                     most_preferred_student.set_has_training(true);
-                    results.insert({most_preferred_training.get_name(),  most_preferred_student.get_id()});
+                    std::cout << most_preferred_student.get_id() << std::endl; 
+                    results[most_preferred_training.get_name()] = most_preferred_student.get_id();
                 }
             }
         }
@@ -69,10 +76,10 @@ string SelectionSystem::get_system_name() const{
     return system_name;
 }
 
-unordered_map<long,Student> SelectionSystem::get_students() const{
+map<long,Student> SelectionSystem::get_students() const{
     return students;
 }
-unordered_map<string,Training> SelectionSystem::get_trainings() const{
+map<string,Training> SelectionSystem::get_trainings() const{
     return trainings;
 }
 

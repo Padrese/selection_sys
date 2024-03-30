@@ -227,43 +227,30 @@ gtest/fast:
 .PHONY : gtest/fast
 
 #=============================================================================
-# Target rules for targets named student
+# Target rules for targets named selectionsystem
 
 # Build rule for target.
-student: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 student
-.PHONY : student
+selectionsystem: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 selectionsystem
+.PHONY : selectionsystem
 
 # fast build rule for target.
-student/fast:
-	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/student.dir/build.make src/CMakeFiles/student.dir/build
-.PHONY : student/fast
+selectionsystem/fast:
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/selectionsystem.dir/build.make src/CMakeFiles/selectionsystem.dir/build
+.PHONY : selectionsystem/fast
 
 #=============================================================================
-# Target rules for targets named selectivesystem
+# Target rules for targets named test_preference
 
 # Build rule for target.
-selectivesystem: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 selectivesystem
-.PHONY : selectivesystem
+test_preference: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_preference
+.PHONY : test_preference
 
 # fast build rule for target.
-selectivesystem/fast:
-	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/selectivesystem.dir/build.make src/CMakeFiles/selectivesystem.dir/build
-.PHONY : selectivesystem/fast
-
-#=============================================================================
-# Target rules for targets named training
-
-# Build rule for target.
-training: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 training
-.PHONY : training
-
-# fast build rule for target.
-training/fast:
-	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/training.dir/build.make src/CMakeFiles/training.dir/build
-.PHONY : training/fast
+test_preference/fast:
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_preference.dir/build.make test/CMakeFiles/test_preference.dir/build
+.PHONY : test_preference/fast
 
 #=============================================================================
 # Target rules for targets named test_student
@@ -277,6 +264,45 @@ test_student: cmake_check_build_system
 test_student/fast:
 	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_student.dir/build.make test/CMakeFiles/test_student.dir/build
 .PHONY : test_student/fast
+
+#=============================================================================
+# Target rules for targets named test_selection_system
+
+# Build rule for target.
+test_selection_system: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_selection_system
+.PHONY : test_selection_system
+
+# fast build rule for target.
+test_selection_system/fast:
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_selection_system.dir/build.make test/CMakeFiles/test_selection_system.dir/build
+.PHONY : test_selection_system/fast
+
+#=============================================================================
+# Target rules for targets named test_training
+
+# Build rule for target.
+test_training: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_training
+.PHONY : test_training
+
+# fast build rule for target.
+test_training/fast:
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_training.dir/build.make test/CMakeFiles/test_training.dir/build
+.PHONY : test_training/fast
+
+#=============================================================================
+# Target rules for targets named test_sys_actor
+
+# Build rule for target.
+test_sys_actor: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_sys_actor
+.PHONY : test_sys_actor
+
+# fast build rule for target.
+test_sys_actor/fast:
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_sys_actor.dir/build.make test/CMakeFiles/test_sys_actor.dir/build
+.PHONY : test_sys_actor/fast
 
 # Help Target
 help:
@@ -295,10 +321,12 @@ help:
 	@echo "... gmock_main"
 	@echo "... gtest"
 	@echo "... gtest_main"
-	@echo "... selectivesystem"
-	@echo "... student"
+	@echo "... selectionsystem"
+	@echo "... test_preference"
+	@echo "... test_selection_system"
 	@echo "... test_student"
-	@echo "... training"
+	@echo "... test_sys_actor"
+	@echo "... test_training"
 .PHONY : help
 
 

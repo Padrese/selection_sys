@@ -65,30 +65,6 @@ CMAKE_BINARY_DIR = /home/alan/Documents/Cours/3A/C++/selection_sys/build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/local/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/local/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip/fast
-
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/local/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/local/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
@@ -109,6 +85,27 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/local/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/local/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"gmock\" \"gtest\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+.PHONY : list_install_components/fast
+
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -121,14 +118,17 @@ install/fast: preinstall/fast
 	/usr/local/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"gmock\" \"gtest\""
-.PHONY : list_install_components
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/local/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
 
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-.PHONY : list_install_components/fast
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/local/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -162,6 +162,20 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+test/CMakeFiles/test_preference.dir/rule:
+	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/test_preference.dir/rule
+.PHONY : test/CMakeFiles/test_preference.dir/rule
+
+# Convenience name for target.
+test_preference: test/CMakeFiles/test_preference.dir/rule
+.PHONY : test_preference
+
+# fast build rule for target.
+test_preference/fast:
+	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_preference.dir/build.make test/CMakeFiles/test_preference.dir/build
+.PHONY : test_preference/fast
+
+# Convenience name for target.
 test/CMakeFiles/test_student.dir/rule:
 	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/test_student.dir/rule
 .PHONY : test/CMakeFiles/test_student.dir/rule
@@ -174,6 +188,96 @@ test_student: test/CMakeFiles/test_student.dir/rule
 test_student/fast:
 	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_student.dir/build.make test/CMakeFiles/test_student.dir/build
 .PHONY : test_student/fast
+
+# Convenience name for target.
+test/CMakeFiles/test_selection_system.dir/rule:
+	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/test_selection_system.dir/rule
+.PHONY : test/CMakeFiles/test_selection_system.dir/rule
+
+# Convenience name for target.
+test_selection_system: test/CMakeFiles/test_selection_system.dir/rule
+.PHONY : test_selection_system
+
+# fast build rule for target.
+test_selection_system/fast:
+	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_selection_system.dir/build.make test/CMakeFiles/test_selection_system.dir/build
+.PHONY : test_selection_system/fast
+
+# Convenience name for target.
+test/CMakeFiles/test_training.dir/rule:
+	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/test_training.dir/rule
+.PHONY : test/CMakeFiles/test_training.dir/rule
+
+# Convenience name for target.
+test_training: test/CMakeFiles/test_training.dir/rule
+.PHONY : test_training
+
+# fast build rule for target.
+test_training/fast:
+	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_training.dir/build.make test/CMakeFiles/test_training.dir/build
+.PHONY : test_training/fast
+
+# Convenience name for target.
+test/CMakeFiles/test_sys_actor.dir/rule:
+	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/test_sys_actor.dir/rule
+.PHONY : test/CMakeFiles/test_sys_actor.dir/rule
+
+# Convenience name for target.
+test_sys_actor: test/CMakeFiles/test_sys_actor.dir/rule
+.PHONY : test_sys_actor
+
+# fast build rule for target.
+test_sys_actor/fast:
+	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_sys_actor.dir/build.make test/CMakeFiles/test_sys_actor.dir/build
+.PHONY : test_sys_actor/fast
+
+test_preference.o: test_preference.cpp.o
+.PHONY : test_preference.o
+
+# target to build an object file
+test_preference.cpp.o:
+	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_preference.dir/build.make test/CMakeFiles/test_preference.dir/test_preference.cpp.o
+.PHONY : test_preference.cpp.o
+
+test_preference.i: test_preference.cpp.i
+.PHONY : test_preference.i
+
+# target to preprocess a source file
+test_preference.cpp.i:
+	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_preference.dir/build.make test/CMakeFiles/test_preference.dir/test_preference.cpp.i
+.PHONY : test_preference.cpp.i
+
+test_preference.s: test_preference.cpp.s
+.PHONY : test_preference.s
+
+# target to generate assembly for a file
+test_preference.cpp.s:
+	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_preference.dir/build.make test/CMakeFiles/test_preference.dir/test_preference.cpp.s
+.PHONY : test_preference.cpp.s
+
+test_selection_system.o: test_selection_system.cpp.o
+.PHONY : test_selection_system.o
+
+# target to build an object file
+test_selection_system.cpp.o:
+	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_selection_system.dir/build.make test/CMakeFiles/test_selection_system.dir/test_selection_system.cpp.o
+.PHONY : test_selection_system.cpp.o
+
+test_selection_system.i: test_selection_system.cpp.i
+.PHONY : test_selection_system.i
+
+# target to preprocess a source file
+test_selection_system.cpp.i:
+	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_selection_system.dir/build.make test/CMakeFiles/test_selection_system.dir/test_selection_system.cpp.i
+.PHONY : test_selection_system.cpp.i
+
+test_selection_system.s: test_selection_system.cpp.s
+.PHONY : test_selection_system.s
+
+# target to generate assembly for a file
+test_selection_system.cpp.s:
+	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_selection_system.dir/build.make test/CMakeFiles/test_selection_system.dir/test_selection_system.cpp.s
+.PHONY : test_selection_system.cpp.s
 
 test_student.o: test_student.cpp.o
 .PHONY : test_student.o
@@ -199,6 +303,54 @@ test_student.cpp.s:
 	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_student.dir/build.make test/CMakeFiles/test_student.dir/test_student.cpp.s
 .PHONY : test_student.cpp.s
 
+test_sys_actor.o: test_sys_actor.cpp.o
+.PHONY : test_sys_actor.o
+
+# target to build an object file
+test_sys_actor.cpp.o:
+	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_sys_actor.dir/build.make test/CMakeFiles/test_sys_actor.dir/test_sys_actor.cpp.o
+.PHONY : test_sys_actor.cpp.o
+
+test_sys_actor.i: test_sys_actor.cpp.i
+.PHONY : test_sys_actor.i
+
+# target to preprocess a source file
+test_sys_actor.cpp.i:
+	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_sys_actor.dir/build.make test/CMakeFiles/test_sys_actor.dir/test_sys_actor.cpp.i
+.PHONY : test_sys_actor.cpp.i
+
+test_sys_actor.s: test_sys_actor.cpp.s
+.PHONY : test_sys_actor.s
+
+# target to generate assembly for a file
+test_sys_actor.cpp.s:
+	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_sys_actor.dir/build.make test/CMakeFiles/test_sys_actor.dir/test_sys_actor.cpp.s
+.PHONY : test_sys_actor.cpp.s
+
+test_training.o: test_training.cpp.o
+.PHONY : test_training.o
+
+# target to build an object file
+test_training.cpp.o:
+	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_training.dir/build.make test/CMakeFiles/test_training.dir/test_training.cpp.o
+.PHONY : test_training.cpp.o
+
+test_training.i: test_training.cpp.i
+.PHONY : test_training.i
+
+# target to preprocess a source file
+test_training.cpp.i:
+	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_training.dir/build.make test/CMakeFiles/test_training.dir/test_training.cpp.i
+.PHONY : test_training.cpp.i
+
+test_training.s: test_training.cpp.s
+.PHONY : test_training.s
+
+# target to generate assembly for a file
+test_training.cpp.s:
+	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_training.dir/build.make test/CMakeFiles/test_training.dir/test_training.cpp.s
+.PHONY : test_training.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -211,10 +363,26 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... test_preference"
+	@echo "... test_selection_system"
 	@echo "... test_student"
+	@echo "... test_sys_actor"
+	@echo "... test_training"
+	@echo "... test_preference.o"
+	@echo "... test_preference.i"
+	@echo "... test_preference.s"
+	@echo "... test_selection_system.o"
+	@echo "... test_selection_system.i"
+	@echo "... test_selection_system.s"
 	@echo "... test_student.o"
 	@echo "... test_student.i"
 	@echo "... test_student.s"
+	@echo "... test_sys_actor.o"
+	@echo "... test_sys_actor.i"
+	@echo "... test_sys_actor.s"
+	@echo "... test_training.o"
+	@echo "... test_training.i"
+	@echo "... test_training.s"
 .PHONY : help
 
 

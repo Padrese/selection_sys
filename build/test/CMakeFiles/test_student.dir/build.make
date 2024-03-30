@@ -92,7 +92,7 @@ test_student_EXTERNAL_OBJECTS =
 
 test/test_student: test/CMakeFiles/test_student.dir/test_student.cpp.o
 test/test_student: test/CMakeFiles/test_student.dir/build.make
-test/test_student: src/libstudent.a
+test/test_student: src/libselectionsystem.a
 test/test_student: /usr/lib/x86_64-linux-gnu/libgtest_main.a
 test/test_student: /usr/lib/x86_64-linux-gnu/libgtest.a
 test/test_student: test/CMakeFiles/test_student.dir/link.txt

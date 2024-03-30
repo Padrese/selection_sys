@@ -14,8 +14,8 @@ class SelectionSystem{
 
     private:
     string system_name;
-    unordered_map<long,Student> students;
-    unordered_map<string,Training> trainings;
+    map<long,Student> students;
+    map<string,Training> trainings;
 
     public:
 
@@ -27,8 +27,8 @@ class SelectionSystem{
 
     map<string, long> gale_shapley() const;
     string get_system_name() const;
-    unordered_map<long,Student> get_students() const;
-    unordered_map<string,Training> get_trainings() const;
+    map<long,Student> get_students() const;
+    map<string,Training> get_trainings() const;
     void add_student(Student student);
     void add_training(Training training);
     Student get_student(long student_id) const;

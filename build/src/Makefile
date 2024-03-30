@@ -65,37 +65,6 @@ CMAKE_BINARY_DIR = /home/alan/Documents/Cours/3A/C++/selection_sys/build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/local/bin/cmake -P cmake_install.cmake
-.PHONY : install
-
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/local/bin/cmake -P cmake_install.cmake
-.PHONY : install/fast
-
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"gmock\" \"gtest\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-.PHONY : list_install_components/fast
-
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/local/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-.PHONY : rebuild_cache/fast
-
 # Special rule for the target install/strip
 install/strip: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
@@ -120,6 +89,27 @@ install/local/fast: preinstall/fast
 	/usr/local/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
 
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/local/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/local/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"gmock\" \"gtest\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+.PHONY : list_install_components/fast
+
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
@@ -129,6 +119,16 @@ edit_cache:
 # Special rule for the target edit_cache
 edit_cache/fast: edit_cache
 .PHONY : edit_cache/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/local/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+.PHONY : rebuild_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -162,53 +162,25 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-src/CMakeFiles/student.dir/rule:
-	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/student.dir/rule
-.PHONY : src/CMakeFiles/student.dir/rule
+src/CMakeFiles/selectionsystem.dir/rule:
+	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/selectionsystem.dir/rule
+.PHONY : src/CMakeFiles/selectionsystem.dir/rule
 
 # Convenience name for target.
-student: src/CMakeFiles/student.dir/rule
-.PHONY : student
+selectionsystem: src/CMakeFiles/selectionsystem.dir/rule
+.PHONY : selectionsystem
 
 # fast build rule for target.
-student/fast:
-	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/student.dir/build.make src/CMakeFiles/student.dir/build
-.PHONY : student/fast
-
-# Convenience name for target.
-src/CMakeFiles/selectivesystem.dir/rule:
-	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/selectivesystem.dir/rule
-.PHONY : src/CMakeFiles/selectivesystem.dir/rule
-
-# Convenience name for target.
-selectivesystem: src/CMakeFiles/selectivesystem.dir/rule
-.PHONY : selectivesystem
-
-# fast build rule for target.
-selectivesystem/fast:
-	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/selectivesystem.dir/build.make src/CMakeFiles/selectivesystem.dir/build
-.PHONY : selectivesystem/fast
-
-# Convenience name for target.
-src/CMakeFiles/training.dir/rule:
-	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/training.dir/rule
-.PHONY : src/CMakeFiles/training.dir/rule
-
-# Convenience name for target.
-training: src/CMakeFiles/training.dir/rule
-.PHONY : training
-
-# fast build rule for target.
-training/fast:
-	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/training.dir/build.make src/CMakeFiles/training.dir/build
-.PHONY : training/fast
+selectionsystem/fast:
+	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/selectionsystem.dir/build.make src/CMakeFiles/selectionsystem.dir/build
+.PHONY : selectionsystem/fast
 
 Behavior/Behavior.o: Behavior/Behavior.cpp.o
 .PHONY : Behavior/Behavior.o
 
 # target to build an object file
 Behavior/Behavior.cpp.o:
-	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/student.dir/build.make src/CMakeFiles/student.dir/Behavior/Behavior.cpp.o
+	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/selectionsystem.dir/build.make src/CMakeFiles/selectionsystem.dir/Behavior/Behavior.cpp.o
 .PHONY : Behavior/Behavior.cpp.o
 
 Behavior/Behavior.i: Behavior/Behavior.cpp.i
@@ -216,7 +188,7 @@ Behavior/Behavior.i: Behavior/Behavior.cpp.i
 
 # target to preprocess a source file
 Behavior/Behavior.cpp.i:
-	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/student.dir/build.make src/CMakeFiles/student.dir/Behavior/Behavior.cpp.i
+	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/selectionsystem.dir/build.make src/CMakeFiles/selectionsystem.dir/Behavior/Behavior.cpp.i
 .PHONY : Behavior/Behavior.cpp.i
 
 Behavior/Behavior.s: Behavior/Behavior.cpp.s
@@ -224,7 +196,7 @@ Behavior/Behavior.s: Behavior/Behavior.cpp.s
 
 # target to generate assembly for a file
 Behavior/Behavior.cpp.s:
-	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/student.dir/build.make src/CMakeFiles/student.dir/Behavior/Behavior.cpp.s
+	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/selectionsystem.dir/build.make src/CMakeFiles/selectionsystem.dir/Behavior/Behavior.cpp.s
 .PHONY : Behavior/Behavior.cpp.s
 
 Preference/Preference.o: Preference/Preference.cpp.o
@@ -232,7 +204,7 @@ Preference/Preference.o: Preference/Preference.cpp.o
 
 # target to build an object file
 Preference/Preference.cpp.o:
-	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/student.dir/build.make src/CMakeFiles/student.dir/Preference/Preference.cpp.o
+	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/selectionsystem.dir/build.make src/CMakeFiles/selectionsystem.dir/Preference/Preference.cpp.o
 .PHONY : Preference/Preference.cpp.o
 
 Preference/Preference.i: Preference/Preference.cpp.i
@@ -240,7 +212,7 @@ Preference/Preference.i: Preference/Preference.cpp.i
 
 # target to preprocess a source file
 Preference/Preference.cpp.i:
-	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/student.dir/build.make src/CMakeFiles/student.dir/Preference/Preference.cpp.i
+	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/selectionsystem.dir/build.make src/CMakeFiles/selectionsystem.dir/Preference/Preference.cpp.i
 .PHONY : Preference/Preference.cpp.i
 
 Preference/Preference.s: Preference/Preference.cpp.s
@@ -248,39 +220,39 @@ Preference/Preference.s: Preference/Preference.cpp.s
 
 # target to generate assembly for a file
 Preference/Preference.cpp.s:
-	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/student.dir/build.make src/CMakeFiles/student.dir/Preference/Preference.cpp.s
+	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/selectionsystem.dir/build.make src/CMakeFiles/selectionsystem.dir/Preference/Preference.cpp.s
 .PHONY : Preference/Preference.cpp.s
 
-SelectiveSystem/SelectiveSystem.o: SelectiveSystem/SelectiveSystem.cpp.o
-.PHONY : SelectiveSystem/SelectiveSystem.o
+SelectionSystem/SelectionSystem.o: SelectionSystem/SelectionSystem.cpp.o
+.PHONY : SelectionSystem/SelectionSystem.o
 
 # target to build an object file
-SelectiveSystem/SelectiveSystem.cpp.o:
-	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/selectivesystem.dir/build.make src/CMakeFiles/selectivesystem.dir/SelectiveSystem/SelectiveSystem.cpp.o
-.PHONY : SelectiveSystem/SelectiveSystem.cpp.o
+SelectionSystem/SelectionSystem.cpp.o:
+	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/selectionsystem.dir/build.make src/CMakeFiles/selectionsystem.dir/SelectionSystem/SelectionSystem.cpp.o
+.PHONY : SelectionSystem/SelectionSystem.cpp.o
 
-SelectiveSystem/SelectiveSystem.i: SelectiveSystem/SelectiveSystem.cpp.i
-.PHONY : SelectiveSystem/SelectiveSystem.i
+SelectionSystem/SelectionSystem.i: SelectionSystem/SelectionSystem.cpp.i
+.PHONY : SelectionSystem/SelectionSystem.i
 
 # target to preprocess a source file
-SelectiveSystem/SelectiveSystem.cpp.i:
-	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/selectivesystem.dir/build.make src/CMakeFiles/selectivesystem.dir/SelectiveSystem/SelectiveSystem.cpp.i
-.PHONY : SelectiveSystem/SelectiveSystem.cpp.i
+SelectionSystem/SelectionSystem.cpp.i:
+	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/selectionsystem.dir/build.make src/CMakeFiles/selectionsystem.dir/SelectionSystem/SelectionSystem.cpp.i
+.PHONY : SelectionSystem/SelectionSystem.cpp.i
 
-SelectiveSystem/SelectiveSystem.s: SelectiveSystem/SelectiveSystem.cpp.s
-.PHONY : SelectiveSystem/SelectiveSystem.s
+SelectionSystem/SelectionSystem.s: SelectionSystem/SelectionSystem.cpp.s
+.PHONY : SelectionSystem/SelectionSystem.s
 
 # target to generate assembly for a file
-SelectiveSystem/SelectiveSystem.cpp.s:
-	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/selectivesystem.dir/build.make src/CMakeFiles/selectivesystem.dir/SelectiveSystem/SelectiveSystem.cpp.s
-.PHONY : SelectiveSystem/SelectiveSystem.cpp.s
+SelectionSystem/SelectionSystem.cpp.s:
+	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/selectionsystem.dir/build.make src/CMakeFiles/selectionsystem.dir/SelectionSystem/SelectionSystem.cpp.s
+.PHONY : SelectionSystem/SelectionSystem.cpp.s
 
 Student/Student.o: Student/Student.cpp.o
 .PHONY : Student/Student.o
 
 # target to build an object file
 Student/Student.cpp.o:
-	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/student.dir/build.make src/CMakeFiles/student.dir/Student/Student.cpp.o
+	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/selectionsystem.dir/build.make src/CMakeFiles/selectionsystem.dir/Student/Student.cpp.o
 .PHONY : Student/Student.cpp.o
 
 Student/Student.i: Student/Student.cpp.i
@@ -288,7 +260,7 @@ Student/Student.i: Student/Student.cpp.i
 
 # target to preprocess a source file
 Student/Student.cpp.i:
-	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/student.dir/build.make src/CMakeFiles/student.dir/Student/Student.cpp.i
+	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/selectionsystem.dir/build.make src/CMakeFiles/selectionsystem.dir/Student/Student.cpp.i
 .PHONY : Student/Student.cpp.i
 
 Student/Student.s: Student/Student.cpp.s
@@ -296,15 +268,39 @@ Student/Student.s: Student/Student.cpp.s
 
 # target to generate assembly for a file
 Student/Student.cpp.s:
-	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/student.dir/build.make src/CMakeFiles/student.dir/Student/Student.cpp.s
+	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/selectionsystem.dir/build.make src/CMakeFiles/selectionsystem.dir/Student/Student.cpp.s
 .PHONY : Student/Student.cpp.s
+
+SystemActor/SystemActor.o: SystemActor/SystemActor.cpp.o
+.PHONY : SystemActor/SystemActor.o
+
+# target to build an object file
+SystemActor/SystemActor.cpp.o:
+	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/selectionsystem.dir/build.make src/CMakeFiles/selectionsystem.dir/SystemActor/SystemActor.cpp.o
+.PHONY : SystemActor/SystemActor.cpp.o
+
+SystemActor/SystemActor.i: SystemActor/SystemActor.cpp.i
+.PHONY : SystemActor/SystemActor.i
+
+# target to preprocess a source file
+SystemActor/SystemActor.cpp.i:
+	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/selectionsystem.dir/build.make src/CMakeFiles/selectionsystem.dir/SystemActor/SystemActor.cpp.i
+.PHONY : SystemActor/SystemActor.cpp.i
+
+SystemActor/SystemActor.s: SystemActor/SystemActor.cpp.s
+.PHONY : SystemActor/SystemActor.s
+
+# target to generate assembly for a file
+SystemActor/SystemActor.cpp.s:
+	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/selectionsystem.dir/build.make src/CMakeFiles/selectionsystem.dir/SystemActor/SystemActor.cpp.s
+.PHONY : SystemActor/SystemActor.cpp.s
 
 Training/Training.o: Training/Training.cpp.o
 .PHONY : Training/Training.o
 
 # target to build an object file
 Training/Training.cpp.o:
-	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/training.dir/build.make src/CMakeFiles/training.dir/Training/Training.cpp.o
+	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/selectionsystem.dir/build.make src/CMakeFiles/selectionsystem.dir/Training/Training.cpp.o
 .PHONY : Training/Training.cpp.o
 
 Training/Training.i: Training/Training.cpp.i
@@ -312,7 +308,7 @@ Training/Training.i: Training/Training.cpp.i
 
 # target to preprocess a source file
 Training/Training.cpp.i:
-	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/training.dir/build.make src/CMakeFiles/training.dir/Training/Training.cpp.i
+	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/selectionsystem.dir/build.make src/CMakeFiles/selectionsystem.dir/Training/Training.cpp.i
 .PHONY : Training/Training.cpp.i
 
 Training/Training.s: Training/Training.cpp.s
@@ -320,7 +316,7 @@ Training/Training.s: Training/Training.cpp.s
 
 # target to generate assembly for a file
 Training/Training.cpp.s:
-	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/training.dir/build.make src/CMakeFiles/training.dir/Training/Training.cpp.s
+	cd /home/alan/Documents/Cours/3A/C++/selection_sys/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/selectionsystem.dir/build.make src/CMakeFiles/selectionsystem.dir/Training/Training.cpp.s
 .PHONY : Training/Training.cpp.s
 
 # Help Target
@@ -335,21 +331,22 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
-	@echo "... selectivesystem"
-	@echo "... student"
-	@echo "... training"
+	@echo "... selectionsystem"
 	@echo "... Behavior/Behavior.o"
 	@echo "... Behavior/Behavior.i"
 	@echo "... Behavior/Behavior.s"
 	@echo "... Preference/Preference.o"
 	@echo "... Preference/Preference.i"
 	@echo "... Preference/Preference.s"
-	@echo "... SelectiveSystem/SelectiveSystem.o"
-	@echo "... SelectiveSystem/SelectiveSystem.i"
-	@echo "... SelectiveSystem/SelectiveSystem.s"
+	@echo "... SelectionSystem/SelectionSystem.o"
+	@echo "... SelectionSystem/SelectionSystem.i"
+	@echo "... SelectionSystem/SelectionSystem.s"
 	@echo "... Student/Student.o"
 	@echo "... Student/Student.i"
 	@echo "... Student/Student.s"
+	@echo "... SystemActor/SystemActor.o"
+	@echo "... SystemActor/SystemActor.i"
+	@echo "... SystemActor/SystemActor.s"
 	@echo "... Training/Training.o"
 	@echo "... Training/Training.i"
 	@echo "... Training/Training.s"

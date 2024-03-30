@@ -1,0 +1,5 @@
+if(EXISTS "/home/alan/Documents/Cours/3A/C++/selection_sys/build/test/test_preference[1]_tests.cmake")
+  include("/home/alan/Documents/Cours/3A/C++/selection_sys/build/test/test_preference[1]_tests.cmake")
+else()
+  add_test(test_preference_NOT_BUILT test_preference_NOT_BUILT)
+endif()

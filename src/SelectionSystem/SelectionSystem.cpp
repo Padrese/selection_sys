@@ -11,9 +11,15 @@ SelectionSystem::~SelectionSystem(){}
 map<string, long> SelectionSystem::gale_shapley() const{
 
     map<string, long> results;
+    map<long, Student> copy_students = students; //Copy for updating results on students
 
-    if (students.size() != trainings.size()){
-        perror("Gale-Shapley only works on same-size sets \n");
+    try{
+        if (students.size() != trainings.size()){
+            throw invalid_argument("Gale-Shapley only works on same-size sets");
+        }
+    }
+    catch (string &e){
+        cerr << "Gale-Shapley only works on same-size sets" << endl;
         return results;
     }
 
@@ -25,7 +31,7 @@ map<string, long> SelectionSystem::gale_shapley() const{
     while (true){
         all_assigned = true;
 
-        for (auto &student: students){
+        for (auto &student: copy_students){
             current_student = student.second;
             if (current_student.get_has_training() == false){
                 all_assigned = false;
@@ -41,15 +47,11 @@ map<string, long> SelectionSystem::gale_shapley() const{
             //Find the most preferred training for the student
             Training most_preferred_training = trainings.at(current_student.get_preference(1).get_training_name());
 
-            cout << "Current student: " << current_student.get_id() << endl;
-            cout << "Most preferred training: " << most_preferred_training.get_name() << endl;
-
             //Student and training form a couple if the training isn't already assigned to a student
             if (most_preferred_training.get_has_student() == false){
                 most_preferred_training.set_has_student(true);
                 current_student.set_has_training(true); 
-                std::cout << current_student.get_id() << std::endl;
-                students[current_student.get_id()] = current_student; //Update status of student in the students
+                copy_students[current_student.get_id()] = current_student; //Update status of student in students map
                 results[most_preferred_training.get_name()] = current_student.get_id();
             }
 
@@ -62,11 +64,18 @@ map<string, long> SelectionSystem::gale_shapley() const{
                 if (most_preferred_student.get_id() != actual_preferred_student.get_id()){
                     actual_preferred_student.set_has_training(false);
                     most_preferred_student.set_has_training(true);
-                    std::cout << most_preferred_student.get_id() << std::endl; 
+                    copy_students[actual_preferred_student.get_id()] = actual_preferred_student; //Update status of student in students map
+                    copy_students[most_preferred_student.get_id()] = most_preferred_student;
                     results[most_preferred_training.get_name()] = most_preferred_student.get_id();
                 }
             }
         }
+    }
+
+    //Display results
+    cout << "Assigning results between students and trainings:" <<endl;
+    for (auto &result : results){
+        cout << "Training " << result.first << " assigned to student " << result.second << endl;
     }
     
     return results;

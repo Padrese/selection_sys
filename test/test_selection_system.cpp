@@ -37,10 +37,34 @@ TEST(TestSelectionSystem, SelectionSystemAddGet){
 }
 
 /**
+ * @brief GS algorithm test with not the same number of students and
+ * trainings.
+ * 
+ */
+TEST(TestSelectionSystem, SelectionSystemGSError){
+    SelectionSystem sys("Parcoursup");
+
+    Student stud_one(1);
+    Student stud_two(2);
+    Student stud_three(3);
+
+    Training train_x("X", "", "", 124);
+    Training train_y("Y", "", "", 241);     
+
+    sys.add_student(stud_one);
+    sys.add_student(stud_two);
+    sys.add_student(stud_three);
+    sys.add_training(train_x);
+    sys.add_training(train_y);
+
+    EXPECT_ANY_THROW(sys.gale_shapley());
+}
+
+/**
  * @brief GS algorithm test with three students and three trainings.
  * Students: 1,2,3  Trainings: X,Y,Z
  * 1 : YXZ, 2 : ZYX, 3 : XZY, X : 213, Y : 321, Z: 132 
- * Expected return: 1Y, 2Z, 3X
+ * Expected return: X3, Y1, Z2
  */
 TEST(TestSelectionSystem, SelectionSystemGSThree){
     SelectionSystem sys("Parcoursup");

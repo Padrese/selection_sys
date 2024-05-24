@@ -7,4 +7,4 @@ Parcoursup's database and criterions are more elaborated than this project, but 
 
 Thus, this project aims to build a simple model based on social criterions (selection system based only on the grades of the student, behavior penalties, knowledge of personal issues unrelated to school,...) that neglect the actual (as of 2024) context in universities (limited availability in training due to the high number of candidates, lack of financial investment in research and university training, etc). The project also aims to analyze the way the Gale-Shapley is implemented, as there is optimality only on one side for the employers (i.e the university trainings in Parcoursup's scheme) but not for the candidates who can choose (i.e, the students).
 
-This is the second C++ project of its creator (Alan Lebreux, 2024 all rights reserved).
+This is the second C++ project of its creator (Alan Lebreux, 2024).

@@ -1221,7 +1221,7 @@ GENERATE_HTML          = YES
 # The default directory is: html.
 # This tag requires that the tag GENERATE_HTML is set to YES.
 
-HTML_OUTPUT            = /home/alan/Documents/Cours/2A/S8/C++S8/TP/projetcpp/TP_LEBREUXA_MAUREJUL/doc/html
+HTML_OUTPUT            = /home/alan/Documents/Projets/C++/selection_sys/doc/html
 
 # The HTML_FILE_EXTENSION tag can be used to specify the file extension for each
 # generated HTML page (for example: .htm, .php, .asp).
@@ -1798,7 +1798,7 @@ GENERATE_LATEX         = NO
 # The default directory is: latex.
 # This tag requires that the tag GENERATE_LATEX is set to YES.
 
-LATEX_OUTPUT           = /home/alan/Documents/Cours/2A/S8/C++S8/TP/projetcpp/TP_LEBREUXA_MAUREJUL/doc/latex
+LATEX_OUTPUT           = /home/alan/Documents/Projets/C++/selection_sys/doc/latex
 
 # The LATEX_CMD_NAME tag can be used to specify the LaTeX command name to be
 # invoked.
@@ -2136,7 +2136,7 @@ GENERATE_DOCBOOK       = YES
 # The default directory is: docbook.
 # This tag requires that the tag GENERATE_DOCBOOK is set to YES.
 
-DOCBOOK_OUTPUT         = /home/alan/Documents/Cours/2A/S8/C++S8/TP/projetcpp/TP_LEBREUXA_MAUREJUL/doc/docbook
+DOCBOOK_OUTPUT         = /home/alan/Documents/Projets/C++/selection_sys/doc/docbook
 
 # If the DOCBOOK_PROGRAMLISTING tag is set to YES, doxygen will include the
 # program listings (including syntax highlighting and cross-referencing
@@ -2343,7 +2343,7 @@ CLASS_DIAGRAMS         = YES
 # DIA_PATH tag allows you to specify the directory where the dia binary resides.
 # If left empty dia is assumed to be found in the default search path.
 
-DIA_PATH               = /home/alan/Documents/Cours/2A/S8/C++S8/TP/projetcpp/TP_LEBREUXA_MAUREJUL/doc/dot
+DIA_PATH               = /home/alan/Documents/Projets/C++/selection_sys/doc/dot
 
 # If set to YES the inheritance and collaboration graphs will hide inheritance
 # and usage relations if the target is undocumented or is not a class.

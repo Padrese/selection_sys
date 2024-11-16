@@ -1,25 +1,16 @@
 @startuml diagram
 
-SelectiveSystem ..> Student
-SelectiveSystem ..> Training
+Actor ..> Student
+Actor ..> Training
+SelectionSystem ..> Actor
 Behavior ..> Student
-Training ..> Preference
-Student ..> Preference
+Actor ..> Preference
 
-class Student {
-    -id : long
-    -behavior : Behavior
-    -grades : unordered_map<string, int>
+class Actor{
     -preferences : map<int, Preference> 
-    -has_training: bool
-    +get_id() : long
-    +get_behavior() : Behavior
-    +add_grade(string id_grade, int grade) : void
-    +remove_grade(string id_grade) : void
-    +clear_all_grades() : void
-    +get_grade(string id_grade) : int
     +get_preference(int order_preference) : Preference
     +get_preferences() : map<int,Preference> 
+    +get_nb_preferences(): int
     +set_behavior(Behavior behavior) : void
     +push_grade(string id_grade, int grade) : void
     +remove_grade(int grade) : void
@@ -27,18 +18,31 @@ class Student {
     +remove_preference(int order_preference) : void
     +switch_preferences(int order_pref_1, int order_pref_2) : void
     +remove_all_preferences() : void
+}
+
+class Student {
+    -id : long
+    -behavior : Behavior
+    -grades : unordered_map<string, int>
+    -has_training: bool
+    +get_id() : long
+    +get_behavior() : Behavior
+    +add_grade(string id_grade, int grade) : void
+    +remove_grade(string id_grade) : void
+    +clear_all_grades() : void
+    +get_grade(string id_grade) : int
     +get_has_training(): bool
     +set_has_training(bool status): void
 }
 
-class SelectiveSystem {
+class SelectionSystem {
     -system_name : string
-    -students: unordered_map<long,Student>
-    -trainings: unordered_map<string,Training>
+    -students: map<long,Student>
+    -trainings: map<string,Training>
     + gale_shapley() : map<string, long> 
     + get_system_name() : string
-    + get_students(): unordered_map<long,Student>
-    + get_trainings(): unordered_map<string,Training>
+    + get_students(): map<long,Student>
+    + get_trainings(): map<string,Training>
     + add_student(Student student): void
     + add_training(Training training): void
     + get_student(long student_id): Student
@@ -54,20 +58,11 @@ class Training {
     - location : string
     - ranking : int
     - has_student : bool
-    - preferences : map<int, Preference> 
     + get_name() : string
     + get_theme() : string
     + get_location() : string
     + get_ranking() : int
     + get_has_student: bool
-    + get_preference(int order_preference) : Preference
-    + get_preferences() : map<int, Preference> 
-    + set_ranking(int ranking) : void
-    + set_has_student(bool status): void
-    + set_preference(int order_preference, Preference preference) : void
-    + remove_preference(int order_preference) : void
-    + switch_preferences(int order_pref_1, int order_pref_2) : void
-    + remove_all_preferences() : void
 }
 
 class Preference{

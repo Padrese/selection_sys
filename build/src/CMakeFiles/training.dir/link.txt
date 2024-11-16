@@ -1,2 +1,0 @@
-/usr/bin/ar qc libtraining.a CMakeFiles/training.dir/Training/Training.cpp.o
-/usr/bin/ranlib libtraining.a

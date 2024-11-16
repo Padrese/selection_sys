@@ -4,12 +4,11 @@
 #define DEF_TRAINING
 
 #include <string>
-#include <map>
-#include "../Preference/Preference.hpp"
+#include "../SystemActor/SystemActor.hpp"
 
 using namespace std;
 
-class Training{
+class Training : public SystemActor{
 
     private:
 
@@ -17,7 +16,6 @@ class Training{
     string theme;
     string location;
     int ranking;
-    map<int, Preference> preferences;
     bool has_student;
 
     public:
@@ -36,12 +34,6 @@ class Training{
     void set_ranking(int ranking);
     bool get_has_student() const;
     void set_has_student(bool status);
-    Preference get_preference(int order_preference) const;
-    map<int, Preference> get_preferences() const;
-    void set_preference(int order_preference, Preference preference);
-    void remove_preference(int order_preference);
-    void switch_preferences(int order_pref_1, int order_pref_2);
-    void remove_all_preferences();
 };
 
 #endif

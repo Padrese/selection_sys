@@ -1,10 +1,20 @@
+/**
+ * @file test_student.cpp
+ * @author alan
+ * @brief 
+ * @date 2024-03-30
+ * 
+ * @copyright Copyright (c) 2024
+ * 
+*/
+
 #include <iostream>
 
 #include <gtest/gtest.h>
 #include "../include/Student/Student.hpp"
 
 /**
- * @brief Tests the instantiation of a Student.
+ * @brief Tests the instantiation of a Student instance.
  */
 TEST(TestStudent, StudentInstantiation){
     Student student(1234);
@@ -38,7 +48,7 @@ TEST(TestStudent, StudentCompTrue){
  * @brief Tests adding and getting a student's grade.
  * 
  */
-TEST(TestStudent, StudentGradeTrue){
+TEST(TestStudent, StudentGradeAddGetTrue){
     Student student(1234);
     student.add_grade("0001", 16);
     EXPECT_EQ(student.get_grade("0001"), 16);
@@ -48,7 +58,7 @@ TEST(TestStudent, StudentGradeTrue){
  * @brief Tests removing a student's grade and checking 
  * that it is not present anymore.
  */
-TEST(TestStudent, StudentGradeFalse){
+TEST(TestStudent, StudentGradeAddGetFalse){
     Student student(1234);
     student.add_grade("0001", 16);   
     student.add_grade("0002", 6);   
@@ -56,3 +66,36 @@ TEST(TestStudent, StudentGradeFalse){
     student.remove_grade("0002");   
     EXPECT_EQ(student.get_grade("0002"),-1);
 }
+
+/**
+ * @brief Tests clearing grades for a student.
+ * 
+ */
+TEST(TestStudent, StudentGradeClear){
+    Student student(1234);
+    student.add_grade("0001", 16);   
+    student.add_grade("0002", 6);   
+    student.add_grade("0003", 11);
+    student.clear_all_grades();
+    EXPECT_EQ(student.get_grades().size(), 0);
+}
+
+/**
+ * @brief Tests if a student has a training (false case).
+ * 
+ */
+TEST(TestStudent, StudentHasTrainingFalse){
+    Student student(1234);
+    EXPECT_EQ(student.get_has_training(), false);
+}
+
+/**
+ * @brief Tests if a student has a training (true case).
+ * 
+ */
+TEST(TestStudent, StudentHasTrainingTrue){
+    Student student(1234);
+    student.set_has_training(true);
+    EXPECT_EQ(student.get_has_training(), true);
+}
+

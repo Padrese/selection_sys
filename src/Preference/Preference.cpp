@@ -1,5 +1,7 @@
 #include "../../include/Preference/Preference.hpp"
 
+Preference::Preference(){};
+
 Preference::~Preference(){};
 
 Preference::Preference(long student_id){

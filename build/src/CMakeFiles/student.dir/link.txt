@@ -1,2 +1,0 @@
-/usr/bin/ar qc libstudent.a CMakeFiles/student.dir/Student/Student.cpp.o CMakeFiles/student.dir/Preference/Preference.cpp.o CMakeFiles/student.dir/Behavior/Behavior.cpp.o
-/usr/bin/ranlib libstudent.a

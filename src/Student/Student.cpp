@@ -3,12 +3,14 @@
 
 using namespace std;
 
+Student::Student(){};
+
+Student::~Student(){};
+
 Student::Student(long id){
     this->id = id;
     this->has_training = false;
 }
-
-Student::~Student(){}
 
 bool Student::operator==(Student &other) const{
     return (this->id == other.id);
@@ -34,6 +36,10 @@ void Student::clear_all_grades(){
     this->grades.clear();
 }
 
+unordered_map<string, int> Student::get_grades() const{
+    return grades;
+}
+
 
 int Student::get_grade(string id_grade) const{
     if (grades.count(id_grade) > 0){
@@ -45,40 +51,12 @@ int Student::get_grade(string id_grade) const{
     }
 }
 
-Preference Student::get_preference(int order_preference) const {
-    if (preferences.count(order_preference) == 0){
-        perror("Preference key doesn't exist in preferences map");
-        return (Preference) nullptr;
-    }
-    return preferences.at(order_preference);
-}
-
-map<int, Preference> Student::get_preferences() const{
-    return preferences;
-}
-
 void Student::set_behavior(Behavior behavior){
     this->behavior = behavior;
 }
 
 void Student::push_grade(string id_grade, int grade){
     grades.insert({id_grade, grade});
-}
-
-void Student::add_preference(int order_preference, Preference preference){
-    preferences.insert({order_preference, preference});
-}
-
-void Student::remove_preference(int order_preference){
-    preferences.erase(order_preference);
-}
-
-void Student::switch_preferences(int order_pref_1, int order_pref_2){
-    //TODO
-}
-
-void Student::remove_all_preferences(){
-    preferences.clear();
 }
 
 bool Student::get_has_training() const {
@@ -88,6 +66,3 @@ bool Student::get_has_training() const {
 void Student::set_has_training(bool status){
     this->has_training = status;
 }
-
-
-

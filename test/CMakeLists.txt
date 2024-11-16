@@ -1,9 +1,28 @@
 enable_testing()
 
+add_executable(test_sys_actor test_sys_actor.cpp)
+target_link_libraries(test_sys_actor selectionsystem)
+target_link_libraries(test_sys_actor GTest::Main)
+
 add_executable(test_student test_student.cpp)
-target_link_libraries(test_student student)
+target_link_libraries(test_student selectionsystem)
 target_link_libraries(test_student GTest::Main)
 
-include(GoogleTest)
-gtest_discover_tests(test_student)
+add_executable(test_training test_training.cpp)
+target_link_libraries(test_training selectionsystem)
+target_link_libraries(test_training GTest::Main)
 
+add_executable(test_preference test_preference.cpp)
+target_link_libraries(test_preference selectionsystem)
+target_link_libraries(test_preference GTest::Main)
+
+add_executable(test_selection_system test_selection_system.cpp)
+target_link_libraries(test_selection_system selectionsystem)
+target_link_libraries(test_selection_system GTest::Main)
+
+include(GoogleTest)
+gtest_discover_tests(test_sys_actor)
+gtest_discover_tests(test_student)
+gtest_discover_tests(test_training)
+gtest_discover_tests(test_preference)
+gtest_discover_tests(test_selection_system)

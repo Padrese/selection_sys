@@ -1,5 +1,0 @@
-if(EXISTS "/home/alan/Documents/Cours/3A/C++/selection_sys/build/test/test_selection_system[1]_tests.cmake")
-  include("/home/alan/Documents/Cours/3A/C++/selection_sys/build/test/test_selection_system[1]_tests.cmake")
-else()
-  add_test(test_selection_system_NOT_BUILT test_selection_system_NOT_BUILT)
-endif()

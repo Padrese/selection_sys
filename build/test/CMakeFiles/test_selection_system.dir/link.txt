@@ -1,1 +1,0 @@
-/usr/bin/c++ -lgtest -pg CMakeFiles/test_selection_system.dir/test_selection_system.cpp.o -o test_selection_system  ../src/libselectionsystem.a /usr/lib/x86_64-linux-gnu/libgtest_main.a /usr/lib/x86_64-linux-gnu/libgtest.a 

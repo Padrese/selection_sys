@@ -1,2 +1,0 @@
-/usr/bin/ar qc libsysactor.a CMakeFiles/sysactor.dir/SystemActor/SystemActor.cpp.o CMakeFiles/sysactor.dir/Student/Student.cpp.o CMakeFiles/sysactor.dir/Training/Training.cpp.o CMakeFiles/sysactor.dir/Preference/Preference.cpp.o CMakeFiles/sysactor.dir/Behavior/Behavior.cpp.o
-/usr/bin/ranlib libsysactor.a
